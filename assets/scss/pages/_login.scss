@@ -1,0 +1,6 @@
+.auth-container{
+    background: linear-gradient(to right,$primary 75%  ,$white 75%);
+    @include media-breakpoint-down(lg) {
+        background: linear-gradient(to bottom,$primary 75%  ,$white 75%);
+    }
+}

@@ -1,0 +1,35 @@
+.flag {
+    position: relative;
+    padding: 4px 24px;
+    margin-right: 20px;
+    border-radius: 0 !important;
+    border: none;
+    font-weight: normal;
+    cursor: default;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 100%;
+        top: 0;
+        width: 20px;
+        height: 100%;
+        background-color: currentColor;
+        mask-image: var(--svg);
+        mask-repeat: no-repeat;
+        // mask-size: auto 100%;
+        mask-position: left center;
+        color: var(--bs-btn-bg);
+        --svg: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnIHg9JzBweCcgeT0nMHB4JyB3aWR0aD0nNjcuMnB4JyBoZWlnaHQ9JzE3Ny42cHgnIHZpZXdCb3g9JzAgMCA2Ny4yIDE3Ny42JyBzdHlsZT0nb3ZlcmZsb3c6dmlzaWJsZTtlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3LjIgMTc3LjY7JyB4bWw6c3BhY2U9J3ByZXNlcnZlJz48ZGVmcz48L2RlZnM+PGc+PHBvbHlnb24gcG9pbnRzPScwLDE3Ny42IDY3LjIsMTc3LjYgMCw4OC44ICcvPjxwb2x5Z29uIHBvaW50cz0nMCwwIDAsODguOCA2Ny4yLDAgJy8+PC9nPjwvc3ZnPiA=");
+    }
+    &:hover{
+        &::after{
+            color: var(--bs-btn-hover-bg);
+        }
+    }
+
+    &.btn-lg {
+        padding: 8px 28px;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,62 @@
+// user-aside
+.user-aside {
+    .btn-link {
+        color: $gray-600;
+
+        &:hover {
+            background-color: $gray-100;
+        }
+
+        &.active {
+            color: $primary;
+            font-weight: bold;
+            background-color: $gray-100;
+        }
+    }
+
+}
+
+.reviews-list {
+    .card-body {
+        position: relative;
+
+        .btn-open_new {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+
+            span {
+                font-size: 1.2rem;
+                padding: 8px;
+                color: #fff;
+                z-index: 1;
+                position: relative;
+                
+            }
+            &::before {
+                content: '';
+                width: 100%;
+                padding-top: 100%;
+                background-color: $primary;
+                border: 1px solid $primary;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                z-index: 0;
+            }
+
+            &:hover{
+                &::before {
+                    background-color: #fff;
+                    
+                }
+                span {
+                    color: $primary;
+                }
+            }
+            
+        }
+    }
+}

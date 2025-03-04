@@ -1,0 +1,60 @@
+// 獅尾圓體 https://github.com/max32002/swei-gothic/tree/master/WebFont/CJK%20TC
+@font-face {
+    font-family: 'SweiGothicCJKtc';
+    src: url('https://cdn.jsdelivr.net/gh/max32002/swei-gothic@2.129/WebFont/CJK%20TC/SweiGothicCJKtc-Thin.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/max32002/swei-gothic@2.129/WebFont/CJK%20TC/SweiGothicCJKtc-Thin.woff') format('woff');
+    font-weight: 100;
+    /* Thin */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SweiGothicCJKtc';
+    src: url('https://cdn.jsdelivr.net/gh/max32002/swei-gothic@2.129/WebFont/CJK%20TC/SweiGothicCJKtc-Regular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/max32002/swei-gothic@2.129/WebFont/CJK%20TC/SweiGothicCJKtc-Regular.woff') format('woff');
+    font-weight: 400;
+    /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SweiGothicCJKtc';
+    src: url('https://cdn.jsdelivr.net/gh/max32002/swei-gothic@2.129/WebFont/CJK%20TC/SweiGothicCJKtc-Medium.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/max32002/swei-gothic@2.129/WebFont/CJK%20TC/SweiGothicCJKtc-Medium.woff') format('woff');
+    font-weight: 500;
+    /* Medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SweiGothicCJKtc';
+    src: url('https://cdn.jsdelivr.net/gh/max32002/swei-gothic@2.129/WebFont/CJK%20TC/SweiGothicCJKtc-Bold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/max32002/swei-gothic@2.129/WebFont/CJK%20TC/SweiGothicCJKtc-Bold.woff') format('woff');
+    font-weight: 700;
+    /* Bold */
+    font-style: normal;
+}
+
+// 何某手寫體  https://github.com/max32002/nanifont ->https://github.com/max32002/swei-gothic/tree/master/WebFont/CJK%20TC
+
+@font-face {
+    font-family: 'NaniFont';
+    src: url('https://cdn.jsdelivr.net/gh/max32002/nanifont@1.036/webfont/NaniFont-Regular.woff2') format("woff2"),
+        url('https://cdn.jsdelivr.net/gh/max32002/nanifont@1.036/webfont/NaniFont-Regular.woff') format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+.font-NaniFont {
+    font-family: 'NaniFont';
+}
+
+.text-line-2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

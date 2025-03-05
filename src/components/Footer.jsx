@@ -7,7 +7,7 @@ export default function Footer() {
             <div className="row justify-content-center">
               <div className="col-lg-3 col-8">
                 <img
-                  src="/src/assets/images/home/contact-logo.svg"
+                  src="//images/home/contact-logo.svg"
                   width={338}
                   className="mw-100"
                 />

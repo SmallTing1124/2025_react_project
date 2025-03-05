@@ -81,7 +81,7 @@ export default function FavoriteTouristSpots() {
                       <div className="card attraction-card">
                         <div className="card-body">
                           <img
-                            src="src/assets/images/home/attraction_1.jpg"
+                            src="/images/home/attraction_1.jpg"
                             className="rounded-top"
                             alt=""
                           />
@@ -119,7 +119,7 @@ export default function FavoriteTouristSpots() {
                       <div className="card attraction-card">
                         <div className="card-body">
                           <img
-                            src="src/assets/images/home/attraction_2.jpg"
+                            src="/images/home/attraction_2.jpg"
                             className="rounded-top"
                             alt=""
                           />
@@ -157,7 +157,7 @@ export default function FavoriteTouristSpots() {
                       <div className="card attraction-card">
                         <div className="card-body">
                           <img
-                            src="src/assets/images/home/attraction_4.jpg"
+                            src="/images/home/attraction_4.jpg"
                             className="rounded-top"
                             alt=""
                           />
@@ -220,7 +220,7 @@ export default function FavoriteTouristSpots() {
                       <div className="card attraction-card">
                         <div className="card-body">
                           <img
-                            src="src/assets/images/home/attraction_1.jpg"
+                            src="/images/home/attraction_1.jpg"
                             className="rounded-top"
                             alt=""
                           />
@@ -258,7 +258,7 @@ export default function FavoriteTouristSpots() {
                       <div className="card attraction-card">
                         <div className="card-body">
                           <img
-                            src="src/assets/images/home/attraction_2.jpg"
+                            src="/images/home/attraction_2.jpg"
                             className="rounded-top"
                             alt=""
                           />
@@ -321,7 +321,7 @@ export default function FavoriteTouristSpots() {
                       <div className="card attraction-card">
                         <div className="card-body">
                           <img
-                            src="src/assets/images/home/attraction_4.jpg"
+                            src="/images/home/attraction_4.jpg"
                             className="rounded-top"
                             alt=""
                           />

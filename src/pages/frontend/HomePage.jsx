@@ -23,12 +23,12 @@ export default function HomePage() {
     <>
       <section className="banner-area">
         <img
-          src="src/assets/images/home/banner-bg.svg"
+          src="/images/home/banner-bg.svg"
           width="100%"
           className="d-none d-lg-block"
         />
         <img
-          src="src/assets/images/home/banner_bg_mobile.jpg"
+          src="/images/home/banner_bg_mobile.jpg"
           width="100%"
           className="d-lg-none"
         />
@@ -46,7 +46,7 @@ export default function HomePage() {
               <div className="col">
                 <div className="card tag-card rounded-4 overflow-hidden border-0">
                   <div className="inner-img">
-                    <img src="src/assets/images/home/where_1.jpg" alt="戶外" />
+                    <img src="/images/home/where_1.jpg" alt="戶外" />
                   </div>
                   <h3 className="tag-title">＃戶外</h3>
                 </div>
@@ -54,7 +54,7 @@ export default function HomePage() {
               <div className="col">
                 <div className="card tag-card rounded-4 overflow-hidden border-0">
                   <div className="inner-img">
-                    <img src="src/assets/images/home/where_2.jpg" alt="玩水" />
+                    <img src="/images/home/where_2.jpg" alt="玩水" />
                   </div>
                   <h3 className="tag-title">＃玩水</h3>
                 </div>
@@ -62,7 +62,7 @@ export default function HomePage() {
               <div className="col">
                 <div className="card tag-card rounded-4 overflow-hidden border-0">
                   <div className="inner-img">
-                    <img src="src/assets/images/home/where_3.jpg" alt="室內" />
+                    <img src="/images/home/where_3.jpg" alt="室內" />
                   </div>
                   <h3 className="tag-title">＃室內</h3>
                 </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
                 <div className="card tag-card rounded-4 overflow-hidden border-0">
                   <div className="inner-img">
                     <img
-                      src="src/assets/images/home/where_4.jpg"
+                      src="/images/home/where_4.jpg"
                       alt="＃露營"
                     />
                   </div>
@@ -83,12 +83,12 @@ export default function HomePage() {
         </div>
         <div className="deco-vehicle position-relative pt-lg-18 pt-16">
           <img
-            src="src/assets/images/home/deco_taxi.svg"
+            src="/images/home/deco_taxi.svg"
             width={138}
             className="position-absolute bottom-0"
           />
           <img
-            src="src/assets/images/home/deco_bus_move.svg"
+            src="/images/home/deco_bus_move.svg"
             width={172}
             className="position-absolute bottom-0"
           />
@@ -106,7 +106,7 @@ export default function HomePage() {
             <div className="row justify-content-center">
               <div className="col-lg-4 col-5">
                 <img
-                  src="src/assets/images/home/deco-cat.svg"
+                  src="/images/home/deco-cat.svg"
                   width={315}
                   style={{ transform: 'translateY(-48px)' }}
                   className="mw-100"
@@ -171,7 +171,7 @@ export default function HomePage() {
             <div className="col">
               <div className="bg-grid-paper rounded-5 py-lg-14 pt-12 pb-17 position-relative mt-lg-14 mb-lg-16 my-12">
                 <img
-                  src="src/assets/images/home/deco_map.svg"
+                  src="/images/home/deco_map.svg"
                   width={264}
                   className="mx-100 position-absolute top-0 mt-8 d-lg-block d-none"
                 />
@@ -193,12 +193,12 @@ export default function HomePage() {
             </div>
           </div>
           <img
-            src="src/assets/images/home/deco_idea.svg"
+            src="/images/home/deco_idea.svg"
             width={373}
             className="mx-100 position-absolute bottom-0 end-0 d-lg-block d-none"
           />
           <img
-            src="src/assets/images/home/deco_idea.svg"
+            src="/images/home/deco_idea.svg"
             width={190}
             className="mx-100 position-absolute start-50  translate-middle-x bottom-0 end-0 d-lg-none"
           />

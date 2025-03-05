@@ -113,7 +113,7 @@
         }
 
         &::before {
-            background-image: url('src/assets/images/contributors/gold.svg');
+            background-image: url('/images/contributors/gold.svg');
         }
     }
 
@@ -127,7 +127,7 @@
         }
 
         &::before {
-            background-image: url('src/assets/images/contributors/silver.svg');
+            background-image: url('/images/contributors/silver.svg');
         }
     }
 
@@ -141,7 +141,7 @@
         }
 
         &::before {
-            background-image: url('src/assets/images/contributors/copper.svg');
+            background-image: url('/images/contributors/copper.svg');
         }
     }
 }

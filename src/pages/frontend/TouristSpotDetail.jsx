@@ -4,10 +4,22 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
+import statusOptionsData from '../../assets/json/status_options.json';
+import facilityOptionsData from '../../assets/json/facility_options.json';
+import transportOptionsData from '../../assets/json/transport_options.json';
+
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export default function TouristSpotsDetail() {
+  const statusOptions = statusOptionsData; // 取得營業狀態
+  const facilityOptions = facilityOptionsData; // 取得設施狀態
+  const transportOptions = transportOptionsData; // 取得交通狀態
+
+console.log(statusOptions);
+
+
   const { id: touristSpotId } = useParams();
   const [touristSpot, setTouristSpot] = useState([]);
   useEffect(() => {
@@ -21,20 +33,7 @@ export default function TouristSpotsDetail() {
     })();
   }, [touristSpotId]);
 
-  const [statusOptions, setStatusOptions] = useState([]); // 取得營業狀態
-  const [facilityOptions, setFacilityOptions] = useState({}); // 取得設施狀態
-  const [transportOptions, setTransportOptions] = useState({}); // 取得設施狀態
-  useEffect(() => {
-    const fetchData = async () => {
-      const statusRes = await axios.get(`/public/status_options.json`);
-      const facilityRes = await axios.get(`/public/facility_options.json`);
-      const transportRes = await axios.get(`/public/transport_options.json`);
-      setStatusOptions(statusRes.data);
-      setFacilityOptions(facilityRes.data);
-      setTransportOptions(transportRes.data);
-    };
-    fetchData();
-  }, []);
+
 
   return (
     <>
@@ -253,11 +252,14 @@ export default function TouristSpotsDetail() {
                 </button>
               </div>
             </nav>
-            <Link to={`/user/tourist-spots/edit/${touristSpotId}`} className="align-items-md-end text-gray-600 ms-auto">
+            <Link
+              to={`/user/tourist-spots/edit/${touristSpotId}`}
+              className="align-items-md-end text-gray-600 ms-auto"
+            >
               <span className="material-symbols-outlined me-2 align-bottom">
                 edit
               </span>
-              修正景點資訊  
+              修正景點資訊
             </Link>
           </div>
         </div>
@@ -345,7 +347,9 @@ export default function TouristSpotsDetail() {
                             >
                               <span
                                 className={`${facilityOptions[facility]?.iconClass} align-middle text-gray-600  me-2`}
-                              >{facilityOptions[facility]?.iconName} </span>
+                              >
+                                {facilityOptions[facility]?.iconName}{' '}
+                              </span>
                               {facilityOptions[facility]?.name}
                             </li>
                           );

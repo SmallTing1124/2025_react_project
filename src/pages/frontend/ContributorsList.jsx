@@ -16,7 +16,7 @@ export default function ContributorsList() {
                   </h2>
                 </div>
                 <img
-                  src="/images/contributors/deco_idea.svg"
+                  src="./images/contributors/deco_idea.svg"
                   alt="deco_idea"
                   style={{ transform: 'translateY(-72px)' }}
                   className="mw-100 col-lg-3 col-4"
@@ -31,7 +31,7 @@ export default function ContributorsList() {
                         <div className="card-body">
                           <div className="avatar-img">
                             <img
-                              src="/images/contributors/avatar-1.png"
+                              src="./images/contributors/avatar-1.png"
                               alt="快樂爸比"
                               width={72}
                               height={72}
@@ -57,7 +57,7 @@ export default function ContributorsList() {
                         <div className="card-body">
                           <div className="avatar-img">
                             <img
-                              src="/images/contributors/avatar-2.png"
+                              src="./images/contributors/avatar-2.png"
                               alt="快樂爸比"
                               width={72}
                               height={72}
@@ -83,7 +83,7 @@ export default function ContributorsList() {
                         <div className="card-body">
                           <div className="avatar-img">
                             <img
-                              src="/images/contributors/avatar-3.png"
+                              src="./images/contributors/avatar-3.png"
                               alt="快樂爸比"
                               width={72}
                               height={72}
@@ -109,7 +109,7 @@ export default function ContributorsList() {
                         <div className="card-body">
                           <div className="avatar-img">
                             <img
-                              src="/images/contributors/avatar-4.png"
+                              src="./images/contributors/avatar-4.png"
                               alt="快樂爸比"
                               width={72}
                               height={72}
@@ -135,7 +135,7 @@ export default function ContributorsList() {
                         <div className="card-body">
                           <div className="avatar-img">
                             <img
-                              src="/images/contributors/avatar-5.png"
+                              src="./images/contributors/avatar-5.png"
                               alt="快樂爸比"
                               width={72}
                               height={72}
@@ -161,7 +161,7 @@ export default function ContributorsList() {
                         <div className="card-body">
                           <div className="avatar-img">
                             <img
-                              src="/images/contributors/avatar-6.png"
+                              src="./images/contributors/avatar-6.png"
                               alt="快樂爸比"
                               width={72}
                               height={72}
@@ -187,7 +187,7 @@ export default function ContributorsList() {
                         <div className="card-body">
                           <div className="avatar-img">
                             <img
-                              src="/images/contributors/avatar-5.png"
+                              src="./images/contributors/avatar-5.png"
                               alt="快樂爸比"
                               width={72}
                               height={72}
@@ -213,7 +213,7 @@ export default function ContributorsList() {
                         <div className="card-body">
                           <div className="avatar-img">
                             <img
-                              src="/images/contributors/avatar-6.png"
+                              src="./images/contributors/avatar-6.png"
                               alt="快樂爸比"
                               width={72}
                               height={72}
@@ -267,7 +267,7 @@ export default function ContributorsList() {
                       </span>
                     </div>
                     <img
-                      src="/images/contributors/deco-hill.svg"
+                      src="./images/contributors/deco-hill.svg"
                       height={70}
                     />
                   </h2>
@@ -341,7 +341,7 @@ export default function ContributorsList() {
                           <div className="card-body ">
                             <div className="avatar-img mb-4">
                               <img
-                                src="/images/contributors/avatar-7.png"
+                                src="./images/contributors/avatar-7.png"
                                 alt="快樂爸比"
                                 width={144}
                                 height={144}
@@ -383,7 +383,7 @@ export default function ContributorsList() {
                           <div className="card-body ">
                             <div className="avatar-img mb-4">
                               <img
-                                src="/images/contributors/avatar-8.png"
+                                src="./images/contributors/avatar-8.png"
                                 alt="快樂爸比"
                                 width={96}
                                 height={96}
@@ -425,7 +425,7 @@ export default function ContributorsList() {
                           <div className="card-body ">
                             <div className="avatar-img mb-4">
                               <img
-                                src="/images/contributors/avatar-9.png"
+                                src="./images/contributors/avatar-9.png"
                                 alt="快樂爸比"
                                 width={96}
                                 height={96}
@@ -483,7 +483,7 @@ export default function ContributorsList() {
                                 <div className="d-flex align-items-center gap-2">
                                   <div className="avatar-img">
                                     <img
-                                      src="/images/contributors/avatar-1.png"
+                                      src="./images/contributors/avatar-1.png"
                                       alt="快樂爸比"
                                       width={40}
                                       height={40}
@@ -505,7 +505,7 @@ export default function ContributorsList() {
                                 <div className="d-flex align-items-center gap-2">
                                   <div className="avatar-img">
                                     <img
-                                      src="/images/contributors/avatar-2.png"
+                                      src="./images/contributors/avatar-2.png"
                                       alt="冒險寶寶"
                                       width={40}
                                       height={40}
@@ -527,7 +527,7 @@ export default function ContributorsList() {
                                 <div className="d-flex align-items-center gap-2">
                                   <div className="avatar-img">
                                     <img
-                                      src="/images/contributors/avatar-10.png"
+                                      src="./images/contributors/avatar-10.png"
                                       alt="陽光爸爸"
                                       width={40}
                                       height={40}
@@ -549,7 +549,7 @@ export default function ContributorsList() {
                                 <div className="d-flex align-items-center gap-2">
                                   <div className="avatar-img">
                                     <img
-                                      src="/images/contributors/avatar-11.png"
+                                      src="./images/contributors/avatar-11.png"
                                       alt="甜心媽咪"
                                       width={40}
                                       height={40}
@@ -571,7 +571,7 @@ export default function ContributorsList() {
                                 <div className="d-flex align-items-center gap-2">
                                   <div className="avatar-img">
                                     <img
-                                      src="/images/contributors/avatar-12.png"
+                                      src="./images/contributors/avatar-12.png"
                                       alt="小明媽咪"
                                       width={40}
                                       height={40}
@@ -593,7 +593,7 @@ export default function ContributorsList() {
                                 <div className="d-flex align-items-center gap-2">
                                   <div className="avatar-img">
                                     <img
-                                      src="/images/contributors/avatar-13.png"
+                                      src="./images/contributors/avatar-13.png"
                                       alt="巧手媽咪"
                                       width={40}
                                       height={40}
@@ -615,7 +615,7 @@ export default function ContributorsList() {
                                 <div className="d-flex align-items-center gap-2">
                                   <div className="avatar-img">
                                     <img
-                                      src="/images/contributors/avatar-14.png"
+                                      src="./images/contributors/avatar-14.png"
                                       alt="小丸子媽"
                                       width={40}
                                       height={40}

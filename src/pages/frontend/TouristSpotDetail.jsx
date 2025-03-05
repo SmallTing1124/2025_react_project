@@ -43,7 +43,7 @@ console.log(statusOptions);
             <div className="mobileTitle d-lg-none">
               <div className="d-flex flex-column justify-content-between mt-5 mb-3">
                 <div className="touristTitle d-flex">
-                  <img src="/images/tourist/Open.svg" alt="" />
+                  <img src="./images/tourist/Open.svg" alt="" />
                   <div className="d-flex flex-column ms-3">
                     <h1 className="fs-4 fs-lg-1">{touristSpot.name}</h1>
                     <div className="d-flex flex-row align-items-center">
@@ -116,7 +116,7 @@ console.log(statusOptions);
             </div>
             <div className="pcTitle d-none d-lg-flex flex-column flex-md-row justify-content-between pb-12">
               <div className="touristTitle d-flex">
-                <img src="/images/tourist/Open.svg" alt="" />
+                <img src="./images/tourist/Open.svg" alt="" />
                 <div className="d-flex flex-column ms-3">
                   <h1>{touristSpot.name}</h1>
                   <div className="d-flex flex-row align-items-center">
@@ -508,7 +508,7 @@ console.log(statusOptions);
                         <li className="evaluate-list-item d-flex rounded-3 px-4 py-6 bg-white">
                           <img
                             className="evaluate-avatar me-3"
-                            src="/images/user-avatar.jpg"
+                            src="./images/user-avatar.jpg"
                             alt=""
                           />
                           <div className="evaluate-text">
@@ -555,7 +555,7 @@ console.log(statusOptions);
                         <li className="evaluate-list-item d-flex rounded-3 px-4 py-6 bg-white">
                           <img
                             className="evaluate-avatar me-3"
-                            src="/images/user-avatar.jpg"
+                            src="./images/user-avatar.jpg"
                             alt=""
                           />
                           <div className="evaluate-text">
@@ -602,7 +602,7 @@ console.log(statusOptions);
                         <li className="evaluate-list-item d-flex rounded-3 px-4 py-6 bg-white">
                           <img
                             className="evaluate-avatar me-3"
-                            src="/images/user-avatar.jpg"
+                            src="./images/user-avatar.jpg"
                             alt=""
                           />
                           <div className="evaluate-text">
@@ -676,7 +676,7 @@ console.log(statusOptions);
         特別感謝・
         <div className="flex-shrink-0">
           <img
-            src="/images/user-avatar.jpg"
+            src="./images/user-avatar.jpg"
             className="rounded-circle"
             alt="user-avatar"
             width={30}

@@ -128,7 +128,7 @@
             position: absolute;
             width: 24px;
             height: 24px;
-            background-image: url('/assets/images/home/rounded.svg');
+            background-image: url('/images/home/rounded.svg');
             background-repeat: no-repeat;
         }
 
@@ -147,10 +147,9 @@
 
 
 .attraction-card {
-    border: 3px solid $primary;
+    border: 3px solid $primary !important;
     border-radius: 32px;
     transition: box-shadow 0.5s;
-
 
     .card-body {
         padding: 32px;

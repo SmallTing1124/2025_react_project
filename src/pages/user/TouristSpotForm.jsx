@@ -9,7 +9,7 @@ export default function TouristSpotForm() {
               <div className="tourist-add-title d-flex flex-column align-items-center">
                 <img
                   className="position-absolute"
-                  src="/images/tourist/Open.svg"
+                  src="./images/tourist/Open.svg"
                   alt=""
                 />
                 <div className="tourist-add-text font-NaniFont text-center mt-13 px-8">
@@ -556,7 +556,7 @@ export default function TouristSpotForm() {
                       <div className="col-md-6">
                         <img
                           className="img-fluid"
-                          src="/images/tourist/attraction_1.jpg"
+                          src="./images/tourist/attraction_1.jpg"
                           alt=""
                         />
                       </div>
@@ -591,21 +591,21 @@ export default function TouristSpotForm() {
                       <div className="col-md-4 col-6">
                         <img
                           className="img-fluid"
-                          src="/images/tourist/attraction_1.jpg"
+                          src="./images/tourist/attraction_1.jpg"
                           alt=""
                         />
                       </div>
                       <div className="col-md-4 col-6">
                         <img
                           className="img-fluid"
-                          src="/images/tourist/attraction_1.jpg"
+                          src="./images/tourist/attraction_1.jpg"
                           alt=""
                         />
                       </div>
                       <div className="col-md-4 col-6">
                         <img
                           className="img-fluid"
-                          src="/images/tourist/attraction_1.jpg"
+                          src="./images/tourist/attraction_1.jpg"
                           alt=""
                         />
                       </div>

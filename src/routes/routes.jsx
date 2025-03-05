@@ -24,6 +24,7 @@ const router = createHashRouter([
     element: <MainLayout />,
     children: [
       { path: '', element: <HomePage /> },
+      { path: 'home', element: <HomePage /> },
       { path: 'tourist-spots', element: <TouristSpotsList /> },
       { path: 'tourist-spot/:id', element: <TouristSpotsDetail /> },
       { path: 'contributors', element: <ContributorsList /> },

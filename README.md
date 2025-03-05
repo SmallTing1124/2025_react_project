@@ -16,4 +16,4 @@
 - **其他**：React Router（前端路由）、GitHub Pages（部署）
 
 ## 🚀 Demo
-👉 [親子好趣處 - 預覽網站]([https://你的GitHub帳號.github.io/你的專案/](https://smallting1124.github.io/2025_react_project/)
+👉 [親子好趣處 - 預覽網站](https://smallting1124.github.io/2025_react_project/)

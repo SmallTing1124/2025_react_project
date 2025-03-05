@@ -13,12 +13,12 @@ export default function GeneralNavbar() {
         <div className="d-flex flex-nowrap  align-items-center w-100 position-relative">
           <Link className="navbar-brand me-xl-12 me-3" href="/">
             <img
-              src="src/assets/images/logo.svg"
+              src="/images/logo.svg"
               alt="親子好趣處"
               className="d-none d-lg-block"
             />
             <img
-              src="src/assets/images/logo-mini.svg"
+              src="/images/logo-mini.svg"
               alt="親子好趣處"
               className="d-lg-none"
             />
@@ -88,7 +88,7 @@ export default function GeneralNavbar() {
                 aria-expanded="false"
               >
                 <img
-                  src="src/assets/images/user-avatar.jpg"
+                  src="/images/user-avatar.jpg"
                   alt="mdo"
                   width={48}
                   height={48}
@@ -100,7 +100,7 @@ export default function GeneralNavbar() {
                   <div className="d-flex align-items-center py-6 px-8">
                     <div className="flex-shrink-0">
                       <img
-                        src="src/assets/images/user-avatar.jpg"
+                        src="/images/user-avatar.jpg"
                         className="rounded-circle"
                         alt="user-avatar"
                         width={60}
@@ -276,7 +276,7 @@ export default function GeneralNavbar() {
                     <div className="d-flex align-items-center py-6 px-8 border-bottom">
                       <div className="flex-shrink-0">
                         <img
-                          src="src/assets/images/user-avatar.jpg"
+                          src="/images/user-avatar.jpg"
                           className="rounded-circle"
                           alt="user-avatar"
                           width={60}

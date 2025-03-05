@@ -12,7 +12,7 @@ export default function AuthLayout() {
                 className="d-block col-lg-6 col-8 pb-lg-0 pb-6 pe-lg-8"
               >
                 <img
-                  src="src/assets/images/home/contact-logo.svg"
+                  src="/images/home/contact-logo.svg"
                   alt="親子好趣處"
                   width="100%"
                 />

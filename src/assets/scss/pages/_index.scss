@@ -1,5 +1,5 @@
 .page01 {
-    background: url("src/assets/images/home/bg-light.jpg");
+    background: url("/images/home/bg-light.jpg");
     background-position: bottom;
     background-size: 100%;
     overflow: hidden;
@@ -30,20 +30,20 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            background-image: url('src/assets/images/home/deco-msg.svg');
+            background-image: url('/images/home/deco-msg.svg');
             z-index: -1;
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100% 100%;
 
             @include media-breakpoint-down(lg) {
-                background-image: url('src/assets/images/home/deco-msg-s.svg');
+                background-image: url('/images/home/deco-msg-s.svg');
             }
         }
 
         &::after {
             content: '';
-            background-image: url('src/assets/images/home/deco-lighthouse.svg');
+            background-image: url('/images/home/deco-lighthouse.svg');
             background-repeat: no-repeat;
             background-position: center right;
             background-size: contain;

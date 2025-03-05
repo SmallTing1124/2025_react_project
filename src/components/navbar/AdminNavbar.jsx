@@ -7,11 +7,11 @@ export default function AdminNavbar() {
         <nav className="navbar fixed-top d-flex">
           <div className="navbar-brand-wrapper text-lg-center d-flex align-items-center">
             <Link to={`/admin/tourist-spots`} className="navbar-brand text-primary brand-logo">
-              <img src="src/assets/images/logo.svg" alt="logo" />
+              <img src="/images/logo.svg" alt="logo" />
               {/* 管理後台 */}
             </Link>
             <Link to={`/admin/tourist-spots`} className="navbar-brand text-primary brand-logo-mini">
-              <img src="src/assets/images/logo-mini.svg" alt="logo" />
+              <img src="/images/logo-mini.svg" alt="logo" />
             </Link>
           </div>
           <div className="navbar-menu-wrapper d-flex justify-content-lg-between justify-content-end align-items-center">

@@ -3,7 +3,7 @@ export default function TouristSpotsList() {
     <>
       <section
         className="pt-lg-15 pt-12 pb-0"
-        style={{ background: 'url(src/assets/images/home/bg-light.jpg)' }}
+        style={{ background: 'url(/images/home/bg-light.jpg)' }}
       >
         <div className="container">
           <div className="row">
@@ -20,7 +20,7 @@ export default function TouristSpotsList() {
                 <div className="row justify-content-center">
                   <div className="col-lg-4 col-5">
                     <img
-                      src="src/assets/images/home/deco-cat.svg"
+                      src="/images/home/deco-cat.svg"
                       width={315}
                       style={{ transform: 'translateY(-56px)' }}
                       className="mw-100"
@@ -482,7 +482,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_1.jpg"
+                      src="/images/home/attraction_1.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -520,7 +520,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_2.jpg"
+                      src="/images/home/attraction_2.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -558,7 +558,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_3.jpg"
+                      src="/images/home/attraction_3.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -596,7 +596,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_4.jpg"
+                      src="/images/home/attraction_4.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -634,7 +634,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_1.jpg"
+                      src="/images/home/attraction_1.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -672,7 +672,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_2.jpg"
+                      src="/images/home/attraction_2.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -710,7 +710,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_3.jpg"
+                      src="/images/home/attraction_3.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -748,7 +748,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_4.jpg"
+                      src="/images/home/attraction_4.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -786,7 +786,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_1.jpg"
+                      src="/images/home/attraction_1.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -824,7 +824,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_2.jpg"
+                      src="/images/home/attraction_2.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -862,7 +862,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_3.jpg"
+                      src="/images/home/attraction_3.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -900,7 +900,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_4.jpg"
+                      src="/images/home/attraction_4.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -938,7 +938,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_1.jpg"
+                      src="/images/home/attraction_1.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -976,7 +976,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_2.jpg"
+                      src="/images/home/attraction_2.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -1014,7 +1014,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_3.jpg"
+                      src="/images/home/attraction_3.jpg"
                       className="rounded-top"
                       alt=""
                     />
@@ -1052,7 +1052,7 @@ export default function TouristSpotsList() {
                 <div className="card attraction-card">
                   <div className="card-body">
                     <img
-                      src="src/assets/images/home/attraction_4.jpg"
+                      src="/images/home/attraction_4.jpg"
                       className="rounded-top"
                       alt=""
                     />

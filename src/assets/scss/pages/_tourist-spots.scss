@@ -51,9 +51,9 @@
     }
 }
 
-
 .filterOptions_area {
     width: 375px;
+    z-index: 9999;
 }
 
 .filterOptions_footer {
@@ -67,7 +67,15 @@
     overflow: hidden;
     display: inline-flex;
     text-align: center;
-    
+
+    li.active {
+        background-color: $normal-gray !important;
+        color: $primary;
+
+        .btn {
+            color: $primary;
+        }
+    }
 
     .cityGroup {
         overflow-x: hidden;

@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router';
 import GeneralNavbar from '../components/navbar/GeneralNavbar';
 import UserSidebar from '../components/sidebar/UserSidebar';
-import Footer from '../components/Footer';
+import Footer from '../components/footer/Footer';
 
 export default function UserLayout() {
   return (

@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const routes = [
   { path: '/tourist-spots', name: '景點列表' },
@@ -11,14 +11,14 @@ export default function GeneralNavbar() {
     <nav className="navbar navbar-expand-lg shadow sticky-top w-100 py-lg-4 py-2">
       <div className="container-xl">
         <div className="d-flex flex-nowrap  align-items-center w-100 position-relative">
-          <Link className="navbar-brand me-xl-12 me-3" href="/">
+          <Link to={"/"} className="navbar-brand me-xl-12 me-3">
             <img
-              src="/images/logo.svg"
+              src="./images/logo.svg"
               alt="親子好趣處"
               className="d-none d-lg-block"
             />
             <img
-              src="/images/logo-mini.svg"
+              src="./images/logo-mini.svg"
               alt="親子好趣處"
               className="d-lg-none"
             />
@@ -59,9 +59,9 @@ export default function GeneralNavbar() {
               {routes.map((route) => {
                 return (
                   <li className="nav-item" key={route.path}>
-                    <Link to={route.path} className="nav-link text-center">
+                    <NavLink to={route.path} className="nav-link text-center">
                       {route.name}
-                    </Link>
+                    </NavLink>
                   </li>
                 );
               })}
@@ -88,7 +88,7 @@ export default function GeneralNavbar() {
                 aria-expanded="false"
               >
                 <img
-                  src="/images/user-avatar.jpg"
+                  src="./images/user-avatar.jpg"
                   alt="mdo"
                   width={48}
                   height={48}
@@ -100,7 +100,7 @@ export default function GeneralNavbar() {
                   <div className="d-flex align-items-center py-6 px-8">
                     <div className="flex-shrink-0">
                       <img
-                        src="/images/user-avatar.jpg"
+                        src="./images/user-avatar.jpg"
                         className="rounded-circle"
                         alt="user-avatar"
                         width={60}
@@ -159,8 +159,6 @@ export default function GeneralNavbar() {
                     <span className="material-symbols-outlined">settings</span>
                     後台管理
                   </Link>
-
-                  
                 </li>
                 <li>
                   <hr className="dropdown-divider my-4" />
@@ -276,7 +274,7 @@ export default function GeneralNavbar() {
                     <div className="d-flex align-items-center py-6 px-8 border-bottom">
                       <div className="flex-shrink-0">
                         <img
-                          src="/images/user-avatar.jpg"
+                          src="./images/user-avatar.jpg"
                           className="rounded-circle"
                           alt="user-avatar"
                           width={60}

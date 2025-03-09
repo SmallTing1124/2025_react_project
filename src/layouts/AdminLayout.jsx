@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router';
 import AdminNavbar from '../components/navbar/AdminNavbar';
 import AdminSidebar from '../components/sidebar/AdminSidebar';
 
@@ -10,6 +10,7 @@ export default function AdminLayout() {
         <AdminSidebar />
         <section className="main-panel">
           <Outlet />
+          <Link to={"/"}>返回前台</Link>
         </section>
       </div>
     </>

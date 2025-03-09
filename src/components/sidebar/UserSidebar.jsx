@@ -1,4 +1,6 @@
 import { Link, useLocation } from 'react-router';
+import LogoutButton from '../button/LogoutButton';
+import { useSelector } from 'react-redux';
 
 const userRoutes = [
   { path: '/user/my-map', name: '我的地圖', iconName: 'map' },
@@ -8,28 +10,33 @@ const userRoutes = [
 ];
 
 export default function UserSidebar() {
+  const userInfo = useSelector((state) => state?.auth?.user);
   const location = useLocation(); // 取得目前的位置
-  const activeRoute = userRoutes.find((route) => route.path === location.pathname);
+  const activeRoute = userRoutes.find(
+    (route) => route.path === location.pathname
+  );
 
   return (
     <>
       <div className="card shadow">
         <div className="card-body px-0">
-          <div className="d-flex flex-column align-items-center text-center py-6 border-bottom">
-            <div className="flex-shrink-0">
-              <img
-                src="./images/user-avatar.jpg"
-                className="rounded-circle"
-                alt="user-avatar"
-                width={60}
-                height={60}
-              />
+          {userInfo && (
+            <div className="d-flex flex-column align-items-center text-center py-6 border-bottom">
+              <div className="flex-shrink-0">
+                <img
+                  src={userInfo.avatarImgUrl || ''}
+                  className="rounded-circle object-fit-cover"
+                  alt="user-avatar"
+                  width={60}
+                  height={60}
+                />
+              </div>
+              <div className="flex-grow-1">
+                <h4 className="py-3">{userInfo.nickname}</h4>
+                <p className="text-gray-600">{userInfo.email}</p>
+              </div>
             </div>
-            <div className="flex-grow-1">
-              <h4 className="py-3">陳大廷</h4>
-              <p className="text-gray-600">userName@mail.com</p>
-            </div>
-          </div>
+          )}
           <ul className="list-unstyled m-0 py-4 border-bottom user-aside">
             {userRoutes.map((route) => {
               const isActive = activeRoute === route;
@@ -53,12 +60,7 @@ export default function UserSidebar() {
               );
             })}
           </ul>
-          <a
-            className="d-inline-flex align-items-center gap-3 py-4 px-8 w-100 mt-4 link-gray-600"
-            href="index.html"
-          >
-            <span className="material-symbols-outlined">logout</span>登出
-          </a>
+          <LogoutButton classStyle={'mt-4 w-100'} />
         </div>
       </div>
     </>

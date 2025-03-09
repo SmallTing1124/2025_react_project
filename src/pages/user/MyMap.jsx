@@ -1,6 +1,7 @@
 import UserStats from "./management/UserStats";
 
 export default function MyMap() {
+  
   return (
     <>
       <UserStats />

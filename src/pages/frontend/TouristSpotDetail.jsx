@@ -16,10 +16,7 @@ export default function TouristSpotsDetail() {
   const statusOptions = statusOptionsData; // 取得營業狀態
   const facilityOptions = facilityOptionsData; // 取得設施狀態
   const transportOptions = transportOptionsData; // 取得交通狀態
-
-console.log(statusOptions);
-
-
+  
   const { id: touristSpotId } = useParams();
   const [touristSpot, setTouristSpot] = useState([]);
   useEffect(() => {
@@ -339,7 +336,6 @@ console.log(statusOptions);
                       <b>周邊環境・</b>
                       <ul className="tourist-infomation-label d-flex flex-row list-inline flex-wrap gap-2">
                         {touristSpot?.facilities?.map((facility, index) => {
-                          console.log(facility);
                           return (
                             <li
                               key={index}

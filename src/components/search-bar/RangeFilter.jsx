@@ -5,6 +5,10 @@ export default function RangeFilter({ register, watch, setValue }) {
   const ageRange = watch('ageRange', 12);
   const handleReset = () => {
     setValue('ageRange', 0);
+    if (dropdownRef.current) {
+      const dropdown = Dropdown.getOrCreateInstance(dropdownRef.current);
+      dropdown.hide(); // 確保有實例後再隱藏
+    }
   };
   const dropdownRef = useRef(null);
   const handleCloseDropDown = () => {
@@ -56,7 +60,7 @@ export default function RangeFilter({ register, watch, setValue }) {
                 <div className="col-6">
                   <div className="d-grid">
                     <button
-                      type="button"
+                      type="submit"
                       className="btn justify-content-center btn-white"
                       onClick={handleReset}
                     >

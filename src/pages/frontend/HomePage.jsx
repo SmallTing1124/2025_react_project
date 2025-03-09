@@ -3,6 +3,8 @@ import TagCategories from '../../components/TagCategories';
 import FeaturedTouristSpots from '../../components/FeaturedTouristSpots';
 
 export default function HomePage() {
+
+
   return (
     <>
       <section className="banner-area">
@@ -17,6 +19,7 @@ export default function HomePage() {
           className="d-lg-none"
         />
       </section>
+      
       <TagCategories />
       <FeaturedTouristSpots />
       <section className="bg-secondary">

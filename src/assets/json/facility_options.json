@@ -1,22 +1,26 @@
-{
-    "parking": {
+[
+    {
+        "key": "parking",
         "name": "停車場",
         "iconClass": "iconify-mingcute--parking-fill",
         "iconName": ""
     },
-    "restroom": {
+    {
+        "key": "restroom",
         "name": "廁所",
         "iconClass": "material-symbols-outlined",
         "iconName": "wc"
     },
-    "nursingRoom": {
+    {
+        "key": "nursingRoom",
         "name": "哺乳室",
         "iconClass": "iconify-mdi--mother-nurse",
         "iconName": ""
     },
-    "babyChangingRoom": {
+    {
+        "key": "babyChangingRoom",
         "name": "育嬰室",
         "iconClass": "iconify-material-symbols--baby-changing-station-rounded",
         "iconName": ""
     }
-}
+]

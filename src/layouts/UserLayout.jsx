@@ -2,11 +2,14 @@ import { Outlet } from 'react-router';
 import GeneralNavbar from '../components/navbar/GeneralNavbar';
 import UserSidebar from '../components/sidebar/UserSidebar';
 import Footer from '../components/footer/Footer';
+import { useSelector } from 'react-redux';
+
 
 export default function UserLayout() {
+  const currentRole = useSelector((state) =>state.auth.role);
   return (
     <>
-      <GeneralNavbar />
+      <GeneralNavbar currentRole={currentRole} />
       <section className="py-lg-14 py-8 bg-light-gray">
         <div className="container-xl">
           <div className="row">

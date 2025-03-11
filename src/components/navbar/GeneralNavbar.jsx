@@ -17,7 +17,7 @@ const userRoutes = [
 ];
 
 export default function GeneralNavbar({ currentRole }) {
-  const userInfo = useSelector((state) => state?.auth?.user); 
+  const userInfo = useSelector((state) => state?.auth?.user);
 
   return (
     <nav className="navbar navbar-expand-lg shadow sticky-top w-100 py-lg-4 py-2">
@@ -178,20 +178,22 @@ export default function GeneralNavbar({ currentRole }) {
                 探索
               </button>
             </li>
-            <li className="nav-item">
-              <button
-                className="nav-link"
-                id="nav-member-group"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-member"
-                type="button"
-                role="tab"
-                aria-controls="nav-member"
-                aria-selected="false"
-              >
-                關於我
-              </button>
-            </li>
+            {currentRole && currentRole !== 'guest' && (
+              <li className="nav-item">
+                <button
+                  className="nav-link"
+                  id="nav-member-group"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-member"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-member"
+                  aria-selected="false"
+                >
+                  關於我
+                </button>
+              </li>
+            )}
           </ul>
           <div className="tab-content  w-100 h-100" id="nav-tabContent">
             <div
@@ -226,64 +228,68 @@ export default function GeneralNavbar({ currentRole }) {
                     </li>
                   )}
                 </ul>
-                <div className="d-flex justify-content-center column-gap-6 px-3 mt-auto border-top py-6 position-absolute bottom-0 w-100">
-                  <LoginButton classStyle={''} />
-                  <RegisterButton classStyle={''} />
+                {currentRole && currentRole === 'guest' && (
+                  <div className="d-flex justify-content-center column-gap-6 px-3 mt-auto border-top py-6 position-absolute bottom-0 w-100">
+                    <LoginButton classStyle={''} />
+                    <RegisterButton classStyle={''} />
+                  </div>
+                )}
+              </div>
+            </div>
+            {currentRole && currentRole !== 'guest' && (
+              <div
+                className="tab-pane h-100 fade"
+                id="nav-member"
+                role="tabpanel"
+                aria-labelledby="nav-member-group"
+                tabIndex={0}
+              >
+                <div className="h-100">
+                  <ul className="navbar-nav mb-0">
+                    {userInfo && (
+                      <li>
+                        <div className="d-flex align-items-center py-6 px-8 border-bottom">
+                          <div className="flex-shrink-0">
+                            <img
+                              src={userInfo?.avatarImgUrl || ''}
+                              className="rounded-circle  object-fit-cover"
+                              alt="user-avatar"
+                              width={60}
+                              height={60}
+                            />
+                          </div>
+                          <div className="flex-grow-1 ms-3">
+                            <h6>{userInfo?.nickname || ''}</h6>
+                            <p className="text-gray-600">
+                              {userInfo?.email || ''}
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    )}
+
+                    {userRoutes.map((route) => {
+                      return (
+                        <li key={route.name}>
+                          <Link
+                            className="d-inline-flex align-items-center link-gray-600 gap-3 py-4 px-8 w-100"
+                            to={route.path}
+                          >
+                            <span className="material-symbols-outlined">
+                              {route.iconName}
+                            </span>
+                            {route.name}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                    <li>
+                      <LogoutButton classStyle={'w-100'} />
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div>
-            <div
-              className="tab-pane h-100 fade"
-              id="nav-member"
-              role="tabpanel"
-              aria-labelledby="nav-member-group"
-              tabIndex={0}
-            >
-              <div className="h-100">
-                <ul className="navbar-nav mb-0">
-                  {userInfo && (
-                    <li>
-                      <div className="d-flex align-items-center py-6 px-8 border-bottom">
-                        <div className="flex-shrink-0">
-                          <img
-                            src={userInfo?.avatarImgUrl || ''}
-                            className="rounded-circle  object-fit-cover"
-                            alt="user-avatar"
-                            width={60}
-                            height={60}
-                          />
-                        </div>
-                        <div className="flex-grow-1 ms-3">
-                          <h6>{userInfo?.nickname || ''}</h6>
-                          <p className="text-gray-600">
-                            {userInfo?.email || ''}
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  )}
-
-                  {userRoutes.map((route) => {
-                    return (
-                      <li key={route.name}>
-                        <Link
-                          className="d-inline-flex align-items-center link-gray-600 gap-3 py-4 px-8 w-100"
-                          to={route.path}
-                        >
-                          <span className="material-symbols-outlined">
-                            {route.iconName}
-                          </span>
-                          {route.name}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                  <li>
-                    <LogoutButton classStyle={'w-100'} />
-                  </li>
-                </ul>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

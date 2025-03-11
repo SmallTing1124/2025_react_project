@@ -1,3 +1,4 @@
+
 export default function TextInput({
   label,
   name,
@@ -6,8 +7,9 @@ export default function TextInput({
   max,
   register,
   errors,
-  required,
+  required
 }) {
+
   return (
     <div className="row mb-4">
       <label htmlFor={name} className="col-md-2 col-form-label">

@@ -37,7 +37,9 @@ export default function TouristSpotForm() {
 
   const getTouristSpot = async (touristSpotId) => {
     try {
-      const res = await axios.get(`${BASE_URL}/locations/${touristSpotId}`);
+      const res = await axios.get(
+        `${BASE_URL}/locations/${touristSpotId}?_embed=editedSpot`
+      );
       setTouristSpotData(res.data);
     } catch (error) {
       console.error(error); // 打印錯誤詳情
@@ -85,7 +87,7 @@ export default function TouristSpotForm() {
         admissionFee: touristSpotData.admissionFee || '',
         area: touristSpotData.location?.area || '',
         city: touristSpotData.location?.city || '',
-        businessStatus: touristSpotData.businessStatus || 'open',
+        businessStatus: touristSpotData?.statusId || 'open',
         description: touristSpotData.description || '',
         facilities: touristSpotData.facilities || [],
         imageUrl: touristSpotData.imageUrl || '',
@@ -98,21 +100,11 @@ export default function TouristSpotForm() {
         category: touristSpotData.category || [],
         subCategories: touristSpotData.subCategories || [],
       });
+      setValue('businessStatus', touristSpotData?.statusId || 'open');
     }
-  }, [touristSpotData, reset]);
+  }, [touristSpotData, reset, setValue]);
   const onSubmit = (data) => {
-    // const createBusinessHours = () => {
-    //   return [
-    //     { day: '星期一', timeSlots: [{ start: '11:00', end: '21:30' }] },
-    //     { day: '星期二', timeSlots: [{ start: '11:00', end: '21:30' }] },
-    //     { day: '星期三', timeSlots: [{ start: '11:00', end: '21:30' }] },
-    //     { day: '星期四', timeSlots: [{ start: '11:00', end: '21:30' }] },
-    //     { day: '星期五', timeSlots: [{ start: '11:00', end: '22:00' }] },
-    //     { day: '星期六', timeSlots: [{ start: '11:00', end: '22:00' }] },
-    //     { day: '星期日', timeSlots: [{ start: '11:00', end: '21:30' }] },
-    //   ];
-    // };
-    const touristSpot = {
+    const spotFormData = {
       isPublished: true,
       name: data.name,
       location: {
@@ -136,35 +128,47 @@ export default function TouristSpotForm() {
       tags: data.tags,
       imageUrl: data.imageUrl,
       imagesUrl: [],
-      userId: !userInfo.id && '',
-      createdAt: new Date(),
     };
 
-    if(currentMode === "add"){
-      addTouristSoptData(touristSpot);
+    // 當前模式：新增
+    if (currentMode === 'add') {
+      spotFormData.userId = userInfo.id || '';
+      spotFormData.createdAt = new Date().toISOString();
+      console.log('要新增的：', spotFormData);
+      addTouristSoptData(spotFormData);
+      alert('新增成功');
     }
-    if(currentMode === "edit"){
-      editTouristSoptData(touristSpot,touristSpotId);
+
+    // 當前模式：編輯
+    if (currentMode === 'edit') {
+      const oldRecord = touristSpotData.editedSpot.find(
+        (record) => String(record.userId) === String(userInfo.id)
+      );
+      if (oldRecord) {
+        // 如果該使用者已有紀錄，只更新修改時間
+        oldRecord.editedAt = new Date().toISOString();
+        editTouristSoptData(spotFormData, touristSpotId);
+        editRecord(oldRecord)
+      } else {
+        // 如果該使用者沒有紀錄，則推入新的修改歷史
+        const newRecord = {
+          userId: userInfo.id,
+          locationId: touristSpotData.id,
+          editedAt: new Date().toISOString(),
+        };
+        editTouristSoptData(spotFormData, touristSpotId);
+        addRecord(newRecord)
+      }
+
+      alert('修改成功');
     }
     reset();
     navigate('/tourist-spots');
   };
 
-  const addTouristSoptData = async (touristSpot) => {
+  const editTouristSoptData = async (touristSpot, touristSpotId) => {
     try {
-      await axios.post(`${BASE_URL}/locations`, touristSpot);
-    } catch (error) {
-      console.error(error); 
-      if (error.response && error.response.data) {
-        alert(error.response.data.message);
-      } else {
-        alert('發生錯誤，請稍後再試');
-      }
-    }
-  };
-  const editTouristSoptData = async (touristSpot,index) => {
-    try {
-      await axios.patch(`${BASE_URL}/locations/${index}`, touristSpot);
+      await axios.patch(`${BASE_URL}/locations/${touristSpotId}`, touristSpot);
     } catch (error) {
       console.error(error); // 打印錯誤詳情
       if (error.response && error.response.data) {
@@ -174,6 +178,46 @@ export default function TouristSpotForm() {
       }
     }
   };
+
+  const addRecord = async (record) => {
+    try {
+      await axios.post(`${BASE_URL}/editedSpot`, record);
+    } catch (error) {
+      console.error(error); // 打印錯誤詳情
+      if (error.response && error.response.data) {
+        alert(error.response.data.message);
+      } else {
+        alert('發生錯誤，請稍後再試');
+      }
+    }
+  };
+
+  const editRecord = async (record) => {
+    try {
+      await axios.patch(`${BASE_URL}/editedSpot`, record);
+    } catch (error) {
+      console.error(error); // 打印錯誤詳情
+      if (error.response && error.response.data) {
+        alert(error.response.data.message);
+      } else {
+        alert('發生錯誤，請稍後再試');
+      }
+    }
+  };
+
+  const addTouristSoptData = async (touristSpot) => {
+    try {
+      await axios.post(`${BASE_URL}/locations`, touristSpot);
+    } catch (error) {
+      console.error(error);
+      if (error.response && error.response.data) {
+        alert(error.response.data.message);
+      } else {
+        alert('發生錯誤，請稍後再試');
+      }
+    }
+  };
+
   return (
     <>
       <section className="p-lg-15 p-0 py-13  bg-normal-gray tourist-edit">
@@ -260,11 +304,13 @@ export default function TouristSpotForm() {
                     </button>
                   </div>
                 </div>
+
                 <BusinessStatusRadio
                   label="經營狀態"
                   register={register}
                   watch={watch}
                 />
+
                 <CategorySelector
                   label="景點類別"
                   register={register}
@@ -273,6 +319,7 @@ export default function TouristSpotForm() {
                   setValue={setValue}
                   value={touristSpotData.category}
                 />
+
                 <TextInput
                   label="適合年紀"
                   name="suitableAge"
@@ -310,12 +357,22 @@ export default function TouristSpotForm() {
                   register={register}
                   errors={errors}
                 />
+
                 <TransportationCheckbox label="交通工具" register={register} />
-                <TagsInput
-                  register={register}
-                  watch={watch}
-                  setValue={setValue}
-                />
+
+                <div className="row mb-4">
+                  <label htmlFor="addTags" className="col-md-2 col-form-label">
+                    新增標籤
+                  </label>
+                  <div className="col-md-10">
+                    <TagsInput
+                      register={register}
+                      watch={watch}
+                      setValue={setValue}
+                    />
+                  </div>
+                </div>
+
                 <TextAreaInput
                   label="景點簡介"
                   name="description"

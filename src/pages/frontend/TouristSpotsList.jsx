@@ -46,7 +46,7 @@ export default function TouristSpotsList() {
                   <div className="col-lg-4 col-5">
                     <img
                       src="./images/home/deco-cat.svg"
-                      width={315}
+                      width={100}
                       style={{ transform: 'translateY(-56px)' }}
                       className="mw-100"
                     />

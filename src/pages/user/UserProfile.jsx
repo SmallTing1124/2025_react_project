@@ -1,4 +1,7 @@
+import { useOutletContext } from "react-router";
+
 export default function UserProfile() {
+  const { userData } = useOutletContext();
   return (
     <>
       <div className="card">
@@ -48,8 +51,8 @@ export default function UserProfile() {
                 性別
                 <span className="text-highligh-600 d-inlinr-block ps-1">*</span>
               </label>
-              <select className="form-select rounded-2">
-                <option selected="">選擇性別</option>
+              <select className="form-select rounded-2" >
+                <option defaultValue="" selected="">選擇性別</option>
                 <option value={1}>男生</option>
                 <option value={2}>女生</option>
                 <option value={3}>其他</option>
@@ -87,7 +90,7 @@ export default function UserProfile() {
               <div className="row g-4">
                 <div className="col-lg-6">
                   <select className="form-select rounded-2">
-                    <option selected="">選擇所在縣市</option>
+                    <option defaultValue=""  selected="">選擇所在縣市</option>
                     <option value={1}>台北市</option>
                     <option value={2}>新北市</option>
                     <option value={3}>桃園市</option>
@@ -95,7 +98,7 @@ export default function UserProfile() {
                 </div>
                 <div className="col-lg-6">
                   <select className="form-select rounded-2">
-                    <option selected="">選擇所在區域</option>
+                    <option defaultValue=""  selected="">選擇所在區域</option>
                     <option value={1}>大安區</option>
                     <option value={2}>松山區</option>
                     <option value={3}>大同區</option>

@@ -26,7 +26,7 @@ export default function SelectFilter({
       setAreaQptions([]);
     }
     setValue(detailFilterKey, []); // 每當選取城市 先把 表單紀錄的區域清除
-  }, [selectedCategory, setValue]);
+  }, [selectedCategory, setValue, detailFilterKey, filteredData]);
 
   const handleSelectedCity = (index) => {
     if (index !== selectedCategory) {
@@ -41,6 +41,10 @@ export default function SelectFilter({
   const handleReset = () => {
     setValue(categoryFilterKey, -1);
     setValue(detailFilterKey, []);
+    if (dropdownRef.current) {
+      const dropdown = Dropdown.getOrCreateInstance(dropdownRef.current);
+      dropdown.hide(); // 確保有實例後再隱藏
+    }
   };
 
   const dropdownRef = useRef(null);
@@ -72,9 +76,14 @@ export default function SelectFilter({
             <div className="filterOptions_content">
               {/* cityGroup 選擇城市 */}
               <ul className="cityGroup list-unstyled border-end mb-0">
-                <input type="hidden" {...register(categoryFilterKey)} />
+                <input
+                  type="hidden"
+                  name={categoryFilterKey}
+                  {...register(categoryFilterKey)}
+                />
                 <li className={selectedCategory === -1 ? 'active' : ''}>
                   <button
+                    type="button"
                     className="btn"
                     onClick={() => {
                       handleSelectedCity(-1);
@@ -92,7 +101,7 @@ export default function SelectFilter({
                         handleSelectedCity(index);
                       }}
                     >
-                      <button className="btn">{item.group}</button>
+                      <button type='button' className="btn">{item.group}</button>
                     </li>
                   );
                 })}
@@ -138,7 +147,7 @@ export default function SelectFilter({
                 <div className="col-6">
                   <div className="d-grid">
                     <button
-                      type="button"
+                      type="submit"
                       className="btn justify-content-center btn-white"
                       onClick={handleReset}
                     >

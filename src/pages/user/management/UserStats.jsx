@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 
-export default function UserStats() {
+export default function UserStats({userData}) {
+  
   return (
     <div className="row mb-lg-8 mb-4 g-lg-4 g-2">
       <div className="col-4">
@@ -8,7 +9,7 @@ export default function UserStats() {
           <div className="card shadow">
             <div className="card-body p-lg-6 p-4 text-lg-start text-center">
               <span>新增景點</span>
-              <b className="d-block fs-1 mt-lg-1 mt-2">10</b>
+              <b className="d-block fs-1 mt-lg-1 mt-2">{userData?.locations?.length || 0}</b>
             </div>
           </div>
         </Link>
@@ -18,7 +19,7 @@ export default function UserStats() {
           <div className="card shadow">
             <div className="card-body p-lg-6 p-4 text-lg-start text-center">
               <span>編修景點</span>
-              <b className="d-block fs-1 mt-lg-1 mt-2">22</b>
+              <b className="d-block fs-1 mt-lg-1 mt-2">{userData?.editedSpot?.length || 0}</b>
             </div>
           </div>
         </Link>
@@ -28,7 +29,7 @@ export default function UserStats() {
           <div className="card shadow">
             <div className="card-body p-lg-6 p-4 text-lg-start text-center">
               <span>景點評價</span>
-              <b className="d-block fs-1 mt-lg-1 mt-2">35</b>
+              <b className="d-block fs-1 mt-lg-1 mt-2">{userData?.comments?.length || 0}</b>
             </div>
           </div>
         </Link>

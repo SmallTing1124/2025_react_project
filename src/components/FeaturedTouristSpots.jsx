@@ -64,8 +64,8 @@ export default function FeaturedTouristSpots() {
                         <ul className="list-unstyled d-flex flex-column gap-2">
                           <li className="d-flex gap-2 align-items-center ">
                             <span className="iconify-rivet-icons--map-pin-solid text-secondary"></span>
-                            {touristSpot.location.area}
-                            {touristSpot.location.city}
+                            {touristSpot?.location?.area}
+                            {touristSpot?.location?.city}
                           </li>
                           <li className="d-flex gap-2 align-items-center">
                             <span className="iconify-mingcute--baby-fill text-secondary"></span>

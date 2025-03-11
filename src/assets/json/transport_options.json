@@ -1,18 +1,22 @@
-{
-    "mrt": {
+[
+    {
+        "key": "mrt",
         "name": "捷運",
         "iconClass": "iconify-mingcute--parking-fill"
     },
-    "bus": {
+    {
+        "key": "bus",
         "name": "公車",
         "iconClass": "iconify-mdi--bus"
     },
-    "car": {
+    {
+        "key": "car",
         "name": "汽車",
         "iconClass": "iconify-ri--car-fill"
     },
-    "ubike": {
+    {
+        "key": "ubike",
         "name": "Ubike",
         "iconClass": "iconify-mingcute--parking-fill"
     }
-}
+]

@@ -15,28 +15,28 @@ export default function Register() {
             <input
               type="email"
               className="form-control"
-              id="floatingInput"
+              id="email"
               placeholder="name@example.com"
             />
-            <label htmlFor="floatingInput">電子郵件</label>
+            <label htmlFor="email">電子郵件</label>
           </div>
           <div className="form-floating col">
             <input
               type="date"
               className="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
+              id="date"
+              placeholder="2021/09/22"
             />
-            <label htmlFor="floatingInput">出生日期</label>
+            <label htmlFor="date">出生日期</label>
           </div>
           <div className="form-floating col">
             <input
               type="password"
               className="form-control"
-              id="floatingPassword"
+              id="password"
               placeholder="密碼"
             />
-            <label htmlFor="floatingPassword">密碼</label>
+            <label htmlFor="password">密碼</label>
             <div className="text-center">
               {/* <small class="text">限8-24碼英文數字符號</small> */}
             </div>
@@ -45,10 +45,10 @@ export default function Register() {
             <input
               type="password"
               className="form-control"
-              id="floatingPassword"
+              id="checkpassword"
               placeholder="密碼(限8-24碼英文數字符號)"
             />
-            <label htmlFor="floatingPassword">再次輸入密碼</label>
+            <label htmlFor="checkpassword">再次輸入密碼</label>
           </div>
           <button
             type="submit"

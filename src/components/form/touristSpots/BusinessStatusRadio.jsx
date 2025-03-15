@@ -26,7 +26,6 @@ export default function BusinessStatusRadio({ register, errors }) {
                       type="radio"
                       id={`btn-${state.key}-check`}
                       value={state.key}
-                      // checked={selectedStatus === state.key}
                     />
                     <label
                       className={`form-check-label label-${state.key}`}

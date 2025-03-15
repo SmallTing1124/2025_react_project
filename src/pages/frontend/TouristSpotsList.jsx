@@ -14,8 +14,9 @@ export default function TouristSpotsList() {
     (async () => {
       try {
         const res = await axios.get(`${BASE_URL}/locations`);
-        setTouristSpotsData(res.data);
-        setFiltertouristSpots(res.data);
+        const data = res.data.sort(() => Math.random() - 0.5)
+        setTouristSpotsData(data);
+        setFiltertouristSpots(data);
       } catch (error) {
         console.log(error);
       }

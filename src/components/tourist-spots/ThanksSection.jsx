@@ -24,7 +24,7 @@ export default function ThanksSection({ touristSpot }) {
           特別感謝・
           <div className="flex-shrink-0">
             <img
-              src={userInfo.avatarImgUrl}
+              src={userInfo?.avatarImgUrl || './images/user-avatar.png'}
               className="rounded-circle object-fit-cover"
               alt="user-avatar"
               width={30}

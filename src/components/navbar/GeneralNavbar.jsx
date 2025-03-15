@@ -95,8 +95,8 @@ export default function GeneralNavbar({ currentRole }) {
                     aria-expanded="false"
                   >
                     <img
-                      src={userInfo?.avatarImgUrl || ''}
-                      alt="mdo"
+                      src={ userInfo?.avatarImgUrl || "./images/user-avatar.png"}
+                      alt="mdo123"
                       width={48}
                       height={48}
                       className="rounded-circle object-fit-cover"
@@ -110,7 +110,10 @@ export default function GeneralNavbar({ currentRole }) {
                       <div className="d-flex align-items-center py-6 px-8">
                         <div className="flex-shrink-0">
                           <img
-                            src={userInfo?.avatarImgUrl || ''}
+                            src={
+                              userInfo?.avatarImgUrl ||
+                              './images/user-avatar.png'
+                            }
                             className="rounded-circle  object-fit-cover"
                             alt="user-avatar"
                             width={60}
@@ -251,7 +254,10 @@ export default function GeneralNavbar({ currentRole }) {
                         <div className="d-flex align-items-center py-6 px-8 border-bottom">
                           <div className="flex-shrink-0">
                             <img
-                              src={userInfo?.avatarImgUrl || ''}
+                              src={
+                                userInfo?.avatarImgUrl ||
+                                './images/user-avatar.png'
+                              }
                               className="rounded-circle  object-fit-cover"
                               alt="user-avatar"
                               width={60}

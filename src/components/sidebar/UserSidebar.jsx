@@ -24,7 +24,7 @@ export default function UserSidebar() {
             <div className="d-flex flex-column align-items-center text-center py-6 border-bottom">
               <div className="flex-shrink-0">
                 <img
-                  src={userInfo.avatarImgUrl || ''}
+                  src={userInfo.avatarImgUrl || './images/user-avatar.png'}
                   className="rounded-circle object-fit-cover"
                   alt="user-avatar"
                   width={60}

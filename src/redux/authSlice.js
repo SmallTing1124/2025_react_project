@@ -36,8 +36,14 @@ export const authSlice = createSlice({
             localStorage.removeItem("token");
             localStorage.removeItem("user");
         },
+        updateUser(state, action) {
+            // 更新 Redux state
+            state.user = { ...state.user, ...action.payload };
+            // 更新 localStorage
+            localStorage.setItem("user", JSON.stringify(state.user));
+        },
     }
 })
 
-export const { loginSuccess, logout } = authSlice.actions;
+export const { loginSuccess, logout,updateUser } = authSlice.actions;
 export default authSlice.reducer;

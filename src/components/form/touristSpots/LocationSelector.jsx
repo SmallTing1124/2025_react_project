@@ -4,7 +4,12 @@ import { useEffect, useState } from 'react';
 import taiwanRegionsData from '../../../assets/json/taiwan_regions.json';
 const taiwanRegions = taiwanRegionsData;
 
-export default function LocationSelector({ register, watch, errors }) {
+export default function LocationSelector({
+  register,
+  watch,
+  errors,
+  touristSpotData,
+}) {
   const [areas, setAreas] = useState([]);
   const selectedCity = watch('city');
   useEffect(() => {
@@ -17,6 +22,18 @@ export default function LocationSelector({ register, watch, errors }) {
       }
     }
   }, [selectedCity]);
+
+  useEffect(() => {
+    // 編輯景點：如果有取到景點資料，更新 form 的初始資料
+    if (touristSpotData) {
+      const currentCity = taiwanRegions.find(
+        (city) => city.group === touristSpotData?.location?.city
+      );
+      if (currentCity) {
+        setAreas(currentCity.options);
+      }
+    }
+  }, [touristSpotData]);
 
   return (
     <>

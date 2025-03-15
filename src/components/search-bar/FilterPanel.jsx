@@ -11,13 +11,18 @@ import SelectFilter from './SelectFilter';
 import RangeFilter from './RangeFilter';
 import KeywordFilter from './KeywordFilter';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router';
 
 export default function FilterPanel({
   setFiltertouristSpots,
   touristSpotsData,
 }) {
+  const [searchParams] = useSearchParams();
+  const keyword = searchParams.get('keyword') || '';
+
   const { register, handleSubmit, watch, setValue } = useForm({
     defaultValues: {
+      searchQuery: '',
       addressCategory: -1,
       categoriesCategory: -1,
       ageRange: 0,
@@ -25,6 +30,25 @@ export default function FilterPanel({
   });
 
   const [filterConditions, setFilterConditions] = useState({});
+
+  const watchSearchQuery = watch('searchQuery');
+
+
+
+  useEffect(() => {
+    setValue('searchQuery', keyword);
+  }, [keyword, setValue]);
+
+  useEffect(() => {
+    onSubmit({
+      searchQuery: watchSearchQuery,
+      addressCategory: watch('addressCategory'),
+      categoriesCategory: watch('categoriesCategory'),
+      ageRange: watch('ageRange'),
+      addressDetail: watch('addressDetail') || [],
+      categoriesDetail: watch('categoriesDetail') || [],
+    });
+  }, [watchSearchQuery]);
 
   const onSubmit = (data) => {
     setFilterConditions({
@@ -43,7 +67,7 @@ export default function FilterPanel({
   };
 
   useEffect(() => {
-    const filterData = touristSpotsData.filter((touristSpot, index) => {
+    const filterData = touristSpotsData.filter((touristSpot) => {
       if (filterConditions.city) {
         if (!touristSpot?.location?.city.includes(filterConditions.city)) {
           return false;
@@ -88,18 +112,12 @@ export default function FilterPanel({
       }
 
       if (filterConditions.keyword) {
-        console.log('key:', filterConditions.keyword);
-        console.log(`${index + 1}:`, touristSpot.name, touristSpot.tags);
         if (
           !touristSpot.name.includes(filterConditions.keyword) &&
           !touristSpot.tags.some((tag) =>
             tag.includes(filterConditions.keyword)
           )
         ) {
-          console.log(
-            `${index + 1}:關鍵字篩選結果：(不符合)`,
-            touristSpot.name
-          );
           return false;
         }
       }
@@ -118,9 +136,9 @@ export default function FilterPanel({
               <div className="search-bar__content">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="row row-cols-lg-3 row-cols-1 g-3"
+                  className="row row-cols-lg-4 row-cols-1 g-3"
                 >
-                  {/* <KeywordFilter register={register} /> */}
+                  <KeywordFilter register={register} />
                   <SelectFilter
                     labelName="地區"
                     dataType="address"
@@ -147,6 +165,7 @@ export default function FilterPanel({
                     className="btn btn-secondary btn-search"
                     type="submit"
                     onClick={() => {
+                      setValue('searchQuery', '');
                       setValue('ageRange', 0);
                       setValue('addressCategory', -1);
                       setValue('addressDetail', []);

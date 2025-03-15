@@ -17,3 +17,10 @@
 
 ## 🚀 Demo
 👉 [親子好趣處 - 預覽網站](https://smallting1124.github.io/2025_react_project/)
+
+
+會員登入帳號：expmle@mail.com 會員登入帳號：expmle123
+後台管理員：admin@mail.com admin1234
+
+模擬測試帳號： user1@mail.com ～ user5@mail.com
+模擬測試密碼： qwer123

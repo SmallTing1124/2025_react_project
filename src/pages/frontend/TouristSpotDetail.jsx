@@ -10,7 +10,6 @@ import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 
 
@@ -21,6 +20,7 @@ import TouristSpotEditLink from '../../components/tourist-spots/TouristSpotEditL
 import TouristSpotHeader from '../../components/tourist-spots/TouristSpotHeader';
 import TabContent from '../../components/tourist-spots/TabContent';
 import ThanksSection from '../../components/tourist-spots/ThanksSection';
+import { useParams } from 'react-router';
 
 export default function TouristSpotsDetail() {
   // loggedInUserId : 當前登入的使用者id

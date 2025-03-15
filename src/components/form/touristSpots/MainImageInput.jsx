@@ -10,11 +10,11 @@ export default function MainImageInput({ register, watch, errors }) {
         <input
           {...register('imageUrl', {
             required: '主要照片欄位必填',
-            // pattern: {
-            //   value:
-            //     /^https?:\/\/.*\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$|^https?:\/\/.*\b(auto=format)\b.*/,
-            //   message: '格式錯誤，檢查是否是有效的圖片',
-            // },
+            pattern: {
+              value:
+                /^https?:\/\/.*\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$|^https?:\/\/.*\b(auto=format)\b.*/,
+              message: '格式錯誤，檢查是否是有效的圖片',
+            },
           })}
           name="imageUrl"
           className={`form-control rounded-1 ${

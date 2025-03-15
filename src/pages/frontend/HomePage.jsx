@@ -21,7 +21,7 @@ export default function HomePage() {
       </section>
       
       <TagCategories />
-      <FeaturedTouristSpots />
+      <FeaturedTouristSpots title="隨機推薦親子景點" />
       <section className="bg-secondary">
         <div className="container-xl position-relative">
           <div className="row">

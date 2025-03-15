@@ -36,8 +36,7 @@ export default function Login() {
       localStorage.setItem('token', accessToken);
       localStorage.setItem('user', JSON.stringify(user));
 
-
-    // 更新 Redux 狀態
+      // 更新 Redux 狀態
       dispatch(
         loginSuccess({ user: user, token: accessToken, role: user.role })
       );
@@ -46,11 +45,7 @@ export default function Login() {
       reset();
       navigate('/');
     } catch (error) {
-      if (error.response && error.response.data) {
-        alert(error.response.data.message);
-      } else {
-        console.log(error);
-      }
+      console.log(error);
     }
   };
   return (

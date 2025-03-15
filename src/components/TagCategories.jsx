@@ -1,4 +1,10 @@
+import { useNavigate } from "react-router";
+
 export default function TagCategories() {
+  const navigate = useNavigate();
+  const handleTagClick = (tag) => {
+    navigate(`/tourist-spots?keyword=${encodeURIComponent(tag)}`)
+  };
   return (
     <>
       <section className="page01 pt-14 ">
@@ -11,38 +17,25 @@ export default function TagCategories() {
           </div>
           <div className="p-lg-8 p-6 border border-primary border-3 rounded-5 bg-white">
             <div className="row row-cols-lg-4 row-cols-md-2 row-cols-1 gy-6">
-              <div className="col">
-                <div className="card tag-card rounded-4 overflow-hidden border-0">
-                  <div className="inner-img">
-                    <img src="./images/home/where_1.jpg" alt="戶外" />
+              {[
+                { src: './images/home/where_1.jpg', alt: '戶外', tag: '戶外' },
+                { src: './images/home/where_5.jpg', alt: '恐龍', tag: '恐龍' },
+                { src: './images/home/where_3.jpg', alt: '室內', tag: '室內' },
+                { src: './images/home/where_6.jpg', alt: '螢火蟲', tag: '螢火蟲' },
+              ].map(({ src, alt, tag }) => (
+                <div className="col" key={tag}>
+                  <div
+                    className="card tag-card rounded-4 overflow-hidden border-0"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => handleTagClick(tag)}
+                  >
+                    <div className="inner-img">
+                      <img src={src} alt={alt} />
+                    </div>
+                    <h3 className="tag-title">＃{tag}</h3>
                   </div>
-                  <h3 className="tag-title">＃戶外</h3>
                 </div>
-              </div>
-              <div className="col">
-                <div className="card tag-card rounded-4 overflow-hidden border-0">
-                  <div className="inner-img">
-                    <img src="./images/home/where_2.jpg" alt="玩水" />
-                  </div>
-                  <h3 className="tag-title">＃玩水</h3>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card tag-card rounded-4 overflow-hidden border-0">
-                  <div className="inner-img">
-                    <img src="./images/home/where_3.jpg" alt="室內" />
-                  </div>
-                  <h3 className="tag-title">＃室內</h3>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card tag-card rounded-4 overflow-hidden border-0">
-                  <div className="inner-img">
-                    <img src="./images/home/where_4.jpg" alt="＃露營" />
-                  </div>
-                  <h3 className="tag-title">＃露營</h3>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import categoryData from '../../../assets/json/category_options.json';
 export default function CategorySelector({ register, setValue, watch }) {
-  const selectedCategory = watch('category');
   const selectedSubOptions = watch('subCategories');
   useEffect(() => {
     if (selectedSubOptions) {

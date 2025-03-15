@@ -1,5 +1,3 @@
-// import categoriesData from '../../assets/json/category_options.json';
-// const categories = categoriesData;
 import { useForm } from 'react-hook-form';
 import LocationSelector from '../../components/form/touristSpots/LocationSelector';
 import BusinessStatusRadio from '../../components/form/touristSpots/BusinessStatusRadio';
@@ -14,6 +12,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
+import OpeningHours from '../../components/form/touristSpots/OpeningHours';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -29,6 +28,8 @@ export default function TouristSpotForm() {
   useEffect(() => {
     if (pathLocation.pathname.includes('add')) {
       setCurrentMode('add');
+      setTouristSpotData([]); // 清空編輯資料
+      reset(); // 也要重設表單
     } else if (pathLocation.pathname.includes('edit')) {
       setCurrentMode('edit');
       getTouristSpot(touristSpotId);
@@ -64,6 +65,7 @@ export default function TouristSpotForm() {
       admissionFee: '',
       area: '',
       businessStatus: 'open',
+      businessHours: {},
       category: [],
       subCategories: [],
       city: '',
@@ -73,7 +75,7 @@ export default function TouristSpotForm() {
       name: '',
       notice: '',
       phone: '',
-      suitableAge: 0,
+      suitableAge: 1,
       tags: [],
       transport: [],
     },
@@ -88,19 +90,22 @@ export default function TouristSpotForm() {
         area: touristSpotData.location?.area || '',
         city: touristSpotData.location?.city || '',
         businessStatus: touristSpotData?.statusId || 'open',
+        businessHours: touristSpotData?.businessHours || {},
         description: touristSpotData.description || '',
         facilities: touristSpotData.facilities || [],
         imageUrl: touristSpotData.imageUrl || '',
         name: touristSpotData.name || '',
         notice: touristSpotData.notice || '',
         phone: touristSpotData.phone || '',
-        suitableAge: touristSpotData.suitableAge || 0,
+        suitableAge: touristSpotData.suitableAge || 1,
         tags: touristSpotData.tags || [],
         transport: touristSpotData.transport || [],
         category: touristSpotData.category || [],
         subCategories: touristSpotData.subCategories || [],
       });
       setValue('businessStatus', touristSpotData?.statusId || 'open');
+    } else {
+      reset();
     }
   }, [touristSpotData, reset, setValue]);
   const onSubmit = (data) => {
@@ -117,7 +122,7 @@ export default function TouristSpotForm() {
       description: data.description,
       notice: data.notice,
       phone: data.phone,
-      // businessHours: createBusinessHours(),
+      businessHours: data.businessHours,
       statusId: data.businessStatus,
       category: data.category,
       subCategories: data.subCategories,
@@ -148,7 +153,7 @@ export default function TouristSpotForm() {
         // 如果該使用者已有紀錄，只更新修改時間
         oldRecord.editedAt = new Date().toISOString();
         editTouristSoptData(spotFormData, touristSpotId);
-        editRecord(oldRecord)
+        editRecord(oldRecord, oldRecord.id);
       } else {
         // 如果該使用者沒有紀錄，則推入新的修改歷史
         const newRecord = {
@@ -157,13 +162,13 @@ export default function TouristSpotForm() {
           editedAt: new Date().toISOString(),
         };
         editTouristSoptData(spotFormData, touristSpotId);
-        addRecord(newRecord)
+        addRecord(newRecord);
       }
 
       alert('修改成功');
     }
     reset();
-    navigate('/tourist-spots');
+    navigate('/user/my-map');
   };
 
   const editTouristSoptData = async (touristSpot, touristSpotId) => {
@@ -171,11 +176,14 @@ export default function TouristSpotForm() {
       await axios.patch(`${BASE_URL}/locations/${touristSpotId}`, touristSpot);
     } catch (error) {
       console.error(error); // 打印錯誤詳情
-      if (error.response && error.response.data) {
-        alert(error.response.data.message);
-      } else {
-        alert('發生錯誤，請稍後再試');
-      }
+    }
+  };
+
+  const editRecord = async (record, id) => {
+    try {
+      await axios.patch(`${BASE_URL}/editedSpot/${id}`, record);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -184,24 +192,6 @@ export default function TouristSpotForm() {
       await axios.post(`${BASE_URL}/editedSpot`, record);
     } catch (error) {
       console.error(error); // 打印錯誤詳情
-      if (error.response && error.response.data) {
-        alert(error.response.data.message);
-      } else {
-        alert('發生錯誤，請稍後再試');
-      }
-    }
-  };
-
-  const editRecord = async (record) => {
-    try {
-      await axios.patch(`${BASE_URL}/editedSpot`, record);
-    } catch (error) {
-      console.error(error); // 打印錯誤詳情
-      if (error.response && error.response.data) {
-        alert(error.response.data.message);
-      } else {
-        alert('發生錯誤，請稍後再試');
-      }
     }
   };
 
@@ -265,6 +255,7 @@ export default function TouristSpotForm() {
                   register={register}
                   watch={watch}
                   errors={errors}
+                  touristSpotData={touristSpotData}
                 />
                 <TextInput
                   label="詳細地址"
@@ -282,28 +273,15 @@ export default function TouristSpotForm() {
                   type="tel"
                   register={register}
                   errors={errors}
-                  required={{
-                    required: '聯絡電話欄位必填',
-                  }}
+                  required=""
                 />
 
-                <div className="row mb-4">
-                  <label
-                    htmlFor="inputOpenTime"
-                    className="col-md-2 col-form-label"
-                  >
-                    營業時間<span className="text-danger">*</span>
-                  </label>
-                  <div className="col-md-10">
-                    <button
-                      type="button"
-                      className="btn btn-primary w-100 d-flex justify-content-center rounded-1"
-                    >
-                      新增營業時間
-                      <span className="iconify-mingcute--time-fill" />
-                    </button>
-                  </div>
-                </div>
+                <OpeningHours
+                  label="營業時間"
+                  register={register}
+                  watch={watch}
+                  setValue={setValue}
+                />
 
                 <BusinessStatusRadio
                   label="經營狀態"
@@ -324,15 +302,15 @@ export default function TouristSpotForm() {
                   label="適合年紀"
                   name="suitableAge"
                   type="number"
-                  min={0}
+                  min={1}
                   max={12}
                   register={register}
                   errors={errors}
                   required={{
                     required: '適合年紀欄位必填',
                     pattern: {
-                      value: /^(?:[0-9]|1[0-2])$/,
-                      message: '適合年紀必須是 0-12 之間的數字',
+                      value: /^(?:[1-9]|1[1-2])$/,
+                      message: '適合年紀必須是 1-12 之間的數字',
                     },
                   }}
                 />

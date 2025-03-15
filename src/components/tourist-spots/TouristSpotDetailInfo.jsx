@@ -38,18 +38,26 @@ export default function TouristSpotDetailInfo({ title, touristSpot }) {
               <span className="iconify-bi--telephone-fill text-secondary"></span>
               <b>營業時間・</b>
               <ul className="list-unstyled">
-                {touristSpot?.businessHours?.map(({ day, timeSlots }) => {
-                  return (
-                    <li className="mb-2 d-flex gap-2" key={day}>
-                      <span>{day}</span>
-                      {timeSlots.length > 0
-                        ? timeSlots
-                            .map((slot) => `${slot.start}-${slot.end}`)
-                            .join(', ')
-                        : '休息'}
-                    </li>
-                  );
-                })}
+                {Object.keys(touristSpot?.businessHours).map(
+                  (weekday, index) => {
+                    return (
+                      <li className="mb-2 d-flex gap-2" key={index}>
+                        <span>{weekday}</span>
+                        {touristSpot?.businessHours[weekday].length === 0
+                          ? '休息'
+                          : touristSpot?.businessHours[weekday].map(
+                              (timeSlots, index) => {
+                                return (
+                                  <span key={index}>
+                                    {timeSlots.startTime}-{timeSlots.endTime}
+                                  </span>
+                                );
+                              }
+                            )}
+                      </li>
+                    );
+                  }
+                )}
               </ul>
             </li>
           )}
@@ -66,7 +74,7 @@ export default function TouristSpotDetailInfo({ title, touristSpot }) {
               <b>最低消費・</b>NT${touristSpot.admissionFee}
             </li>
           )}
-          {touristSpot?.facilities && (
+          {touristSpot?.facilities?.length > 0 && (
             <li className="d-flex align-items-center gap-2">
               <span className="iconify-ph--tree-fill text-secondary"></span>
               <b>周邊環境・</b>
@@ -89,7 +97,7 @@ export default function TouristSpotDetailInfo({ title, touristSpot }) {
               </ul>
             </li>
           )}
-          {touristSpot?.transport && (
+          {touristSpot?.transport?.length > 0 && (
             <li className="d-flex align-items-center gap-2">
               <span className="iconify-ph--tree-fill text-secondary"></span>
               <b>交通工具・</b>

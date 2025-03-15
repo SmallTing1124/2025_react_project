@@ -1,10 +1,14 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
 
 export default function KeywordSearch() {
-  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  const { register, handleSubmit ,reset} = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    navigate(`/tourist-spots?keyword=${encodeURIComponent(data.keyword)}`)
+    reset()
   };
 
   return (
@@ -19,7 +23,7 @@ export default function KeywordSearch() {
           <span className="material-symbols-outlined">search</span>
         </label>
         <input
-          {...register('searchInput')}
+          {...register('keyword')}
           className="form-control py-3 px-0"
           id="searchInput"
           type="search"

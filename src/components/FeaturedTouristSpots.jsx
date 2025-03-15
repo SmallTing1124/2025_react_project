@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+
 import { Link } from 'react-router';
 
 export default function FeaturedTouristSpots() {
@@ -13,12 +14,31 @@ export default function FeaturedTouristSpots() {
     (async () => {
       try {
         const res = await axios.get(`${BASE_URL}/locations`);
-        setTouristSpotsData(res.data);
+        const data = res.data.sort(() => Math.random() - 0.5);
+        setTouristSpotsData(data);
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
+
+  const swiperRef = useRef(null);
+
+  const handlePrevSlide = () => {
+    if (swiperRef.current.isBeginning) {
+      swiperRef.current.slideTo(swiperRef.current.slides.length - 1);
+    } else {
+      swiperRef.current.slideNext();
+    }
+  };
+
+  const handleNextSlide = () => {
+    if (swiperRef.current.isEnd) {
+      swiperRef.current.slideTo(0);
+    } else {
+      swiperRef.current.slideNext();
+    }
+  };
 
   return (
     <section className="page02 bg-normal-gray py-lg-15 py-12">
@@ -41,8 +61,11 @@ export default function FeaturedTouristSpots() {
             </div>
           </div>
         </div>
-        <div className="position-relative px-14">
-          <Swiper slidesPerView={3}>
+        <div className="position-relative px-8">
+          <Swiper
+            slidesPerView={3}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+          >
             {touristSpotsData.map((touristSpot) => {
               return (
                 <SwiperSlide key={touristSpot.id}>
@@ -87,6 +110,18 @@ export default function FeaturedTouristSpots() {
               );
             })}
           </Swiper>
+          <button
+            className="btn btn-primary p-3 position-absolute top-50 start-0 translate-middle"
+            onClick={handlePrevSlide}
+          >
+            <span className="material-symbols-outlined">arrow_left</span>
+          </button>
+          <button
+            className="btn btn-primary p-3 position-absolute top-50 start-100 translate-middle"
+            onClick={handleNextSlide}
+          >
+            <span className="material-symbols-outlined">arrow_right</span>
+          </button>
         </div>
         <div className="mt-lg-15 mt-12 text-center">
           <Link to={'/tourist-spots'} className="btn btn-primary">

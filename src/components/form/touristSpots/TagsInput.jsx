@@ -25,10 +25,9 @@ export default function TagsInput({ register, watch, setValue }) {
   return (
     <>
       <div className="row mb-4">
-        <label htmlFor="addTags" className="col-md-2 col-form-label">
+        {/* <label htmlFor="addTags" className="col-md-2 col-form-label">
           新增標籤
-          {/* <span className="text-danger">*</span> */}
-        </label>
+        </label> */}
         <div className="col-md-10">
           <ul className="list-inline d-flex flex-row flex-wrap gap-2">
             <input type="hidden" name="tags" {...register('tags')} />

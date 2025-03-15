@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="mb-lg-12 mb-6">
           <div className="container-fluid">
             <div className="row justify-content-center">
-              <div className="col-lg-3 col-8">
+              <div className="col-lg-3 col-8 text-center">
                 <img
                   src="./images/home/contact-logo.svg"
                   width={338}

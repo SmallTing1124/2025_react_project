@@ -1,12 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router';
+import {  useNavigate } from 'react-router';
 import { logout } from '../../redux/authSlice';
 
 export default function LogoutButton({ classStyle }) {
   const dispatch = useDispatch();
+  const navigate =  useNavigate()
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate('/');
   };
   return (
     <>

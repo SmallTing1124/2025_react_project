@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import LogoutButton from "../button/LogoutButton";
 
 export default function AdminNavbar() {
   return (
@@ -42,10 +43,12 @@ export default function AdminNavbar() {
                     修改密碼
                   </a>
                   <div className="dropdown-divider" />
-                  <a className="dropdown-item" href="admin_login.php">
+                  
+                  {/* <a className="dropdown-item" href="admin_login.php">
                     <i className="bi bi-box-arrow-right  me-2 text-primary" />
                     登出
-                  </a>
+                  </a> */}
+                  <LogoutButton classStyle={'dropdown-item'} />
                 </ul>
               </div>
               <Link to={"/"} className="btn mx-4 d-lg-block d-none">

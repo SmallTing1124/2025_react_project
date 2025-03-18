@@ -131,6 +131,7 @@ export default function UserProfile() {
                     style={{
                       backgroundImage: 'url(./images/user-avatar.png)',
                       backgroundSize: 'contain',
+                      width:"90px"
                     }}
                   >
                     {selectedAvatarImgUrl && (

@@ -78,7 +78,7 @@ export default function Register() {
       alert('已經註冊成功！');
       // 重置表單並導航
       reset();
-      navigate('/');
+      navigate('/user/profile');
     } catch (error) {
       console.log(error.response.data);
       alert('註冊失敗');

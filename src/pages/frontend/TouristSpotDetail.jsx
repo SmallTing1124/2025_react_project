@@ -9,10 +9,8 @@ const transportOptions = transportOptionsData; // 取得交通狀態
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-
-
 
 import TouristSpotImages from '../../components/tourist-spots/TouristSpotImages';
 import TabNavigation from '../../components/tourist-spots/TabNavigation';
@@ -28,18 +26,20 @@ export default function TouristSpotsDetail() {
   const { id: touristSpotId } = useParams();
   const [touristSpot, setTouristSpot] = useState({});
 
-  const getTouristSpotData = async () => {
+  const getTouristSpotData = useCallback(async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/locations/${touristSpotId}?_embed=favoriteSpots&_embed=checkedInSpot&_embed=wishlistSpots`);
+      const res = await axios.get(
+        `${BASE_URL}/locations/${touristSpotId}?_embed=favoriteSpots&_embed=checkedInSpot&_embed=wishlistSpots`
+      );
       setTouristSpot(res.data);
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [touristSpotId]);
 
   useEffect(() => {
     getTouristSpotData(touristSpotId);
-  }, [touristSpotId]);
+  }, [touristSpotId, getTouristSpotData]);
 
   useEffect(() => {
     setTouristSpot((prev) => ({
@@ -55,10 +55,9 @@ export default function TouristSpotsDetail() {
       ),
     }));
   }, [
-    statusOptions,
     touristSpot.statusId,
     touristSpot.facilities,
-    touristSpot.transport,
+    touristSpot.transport
   ]);
 
   return (
@@ -66,10 +65,13 @@ export default function TouristSpotsDetail() {
       <section className="pt-lg-15 pt-12">
         <div className="container-xl">
           <div className="d-flex flex-column-reverse flex-lg-column">
-            <TouristSpotHeader touristSpot={touristSpot} loggedInUserId={loggedInUserId}/>
+            <TouristSpotHeader
+              touristSpot={touristSpot}
+              loggedInUserId={loggedInUserId}
+            />
             <TouristSpotImages touristSpot={touristSpot} />
           </div>
-          <div className="d-flex flex-column-reverse flex-md-row justify-content-between align-items-baseline pt-12 ">
+          <div className="d-flex flex-column-reverse flex-md-row justify-content-between align-items-baseline pt-lg-12 pt-6">
             <TabNavigation />
             <TouristSpotEditLink touristSpotId={touristSpotId} />
           </div>
@@ -77,11 +79,14 @@ export default function TouristSpotsDetail() {
       </section>
       <main className="pt-12 pb-15 bg-normal-gray">
         <div className="container-xl">
-          <TabContent touristSpot={touristSpot}  loggedInUserId={loggedInUserId}/>
+          <TabContent
+            touristSpot={touristSpot}
+            loggedInUserId={loggedInUserId}
+          />
         </div>
       </main>
       <ThanksSection touristSpot={touristSpot} />
-      <div id="liveAlertPlaceholder"  />
+      <div id="liveAlertPlaceholder" />
     </>
   );
 }

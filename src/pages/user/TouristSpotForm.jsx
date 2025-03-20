@@ -34,7 +34,7 @@ export default function TouristSpotForm() {
       setCurrentMode('edit');
       getTouristSpot(touristSpotId);
     }
-  }, [pathLocation, touristSpotId]);
+  }, [pathLocation, touristSpotId,reset]);
 
   const getTouristSpot = async (touristSpotId) => {
     try {

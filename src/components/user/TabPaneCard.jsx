@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import TouristSpotCard from '../tourist-spots/TouristSpotCard';
 import StatusButtonGroup from './StatusButtonGroup';
 
@@ -36,13 +36,16 @@ export default function TabPaneCard({
     pause: 0,
     close: 0,
   });
-  const updateStatusCount = (list) => ({
-    activeTab,
-    all: list?.length || 0,
-    open: list?.filter((item) => item?.statusId === 'open')?.length || 0,
-    pause: list?.filter((item) => item?.statusId === 'pause')?.length || 0,
-    close: list?.filter((item) => item?.statusId === 'close')?.length || 0,
-  });
+  const updateStatusCount = useCallback(
+    (list) => ({
+      activeTab,
+      all: list?.length || 0,
+      open: list?.filter((item) => item?.statusId === 'open')?.length || 0,
+      pause: list?.filter((item) => item?.statusId === 'pause')?.length || 0,
+      close: list?.filter((item) => item?.statusId === 'close')?.length || 0,
+    }),
+    [activeTab]
+  );
 
   useEffect(() => {
     if (activeTab === 'favorites') {
@@ -52,7 +55,7 @@ export default function TabPaneCard({
     } else {
       setStatusCount(updateStatusCount(checkedInList));
     }
-  }, [activeTab, favoriteList, wishlistList, checkedInList]);
+  }, [activeTab, favoriteList, wishlistList, checkedInList, updateStatusCount]);
 
   // checkedin
   // checkedInList

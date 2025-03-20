@@ -1,13 +1,13 @@
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import TouristSpotAddReview from './TouristSpotAddReview';
 import formatTimeAgo from '../../utils/formatTimeAgo';
 export default function TouristSpotReview({ title, touristSpot }) {
   const [reviewData, setReviewData] = useState([]);
   const [averageRating, setAverageRating] = useState('');
-  const getReviewData = async () => {
+  const getReviewData = useCallback(async () => {
     try {
       const res = await axios.get(
         `${BASE_URL}/comments?locationId=${touristSpot.id}&_expand=user`
@@ -22,10 +22,10 @@ export default function TouristSpotReview({ title, touristSpot }) {
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [touristSpot]);
   useEffect(() => {
     getReviewData();
-  }, [touristSpot]);
+  }, [getReviewData]);
 
   useEffect(() => {
     if (reviewData.length) {

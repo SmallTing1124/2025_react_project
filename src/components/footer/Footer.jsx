@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
             <div className="col-lg-6 text-lg-end  text-center text-white">
               <span className="fs-lg-6 fs-7">
-                © 2024 親子好趣處 unFamilyMap. All rights reserved.
+                © 2024 親子好趣處 FunFamilyMap. All rights reserved.
               </span>
             </div>
           </div>

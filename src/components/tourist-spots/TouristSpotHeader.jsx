@@ -13,7 +13,7 @@ export default function TouristSpotHeader({ touristSpot, loggedInUserId }) {
             className={`icon icon-${touristSpot.statusId}`}
             style={{ width: '90px', height: '90px' }}
           ></i>
-          <div className="d-flex flex-column ms-3">
+          <div className="d-flex flex-column ms-3 mt-auto">
             <h1>{touristSpot.name}</h1>
             <div className="d-flex flex-row align-items-center">
               <span
@@ -41,7 +41,7 @@ export default function TouristSpotHeader({ touristSpot, loggedInUserId }) {
         </div>
         {authRole !== 'guest' && (
           <form>
-            <div className="btn-group flex-lg-row flex-column align-items-end gap-lg-3 gap-5 w-100">
+            <div className="btn-group flex-lg-row flex-column align-items-end gap-lg-3 gap-3 w-100">
               <div className="d-flex gap-3">
                 <FavoriteButton
                   touristSpot={touristSpot}

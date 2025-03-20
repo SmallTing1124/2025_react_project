@@ -3,7 +3,7 @@ import GeneralNavbar from '../components/navbar/GeneralNavbar';
 import UserSidebar from '../components/sidebar/UserSidebar';
 import Footer from '../components/footer/Footer';
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -14,7 +14,7 @@ export default function UserLayout() {
   const loggedInUserId = useSelector((state) => state?.auth?.user?.id);
   const [userData, setuserData] = useState({});
 
-  const getUserData = async () => {
+  const getUserData = useCallback(async () => {
     try {
       const res = await axios.get(
         `${BASE_URL}/users/${loggedInUserId}?_embed=favoriteSpots&_embed=checkedInSpot&_embed=locations&_embed=editedSpot&_embed=comments&_embed=wishlistSpots`
@@ -23,11 +23,11 @@ export default function UserLayout() {
     } catch (error) {
       console.log(error);
     }
-  };
+  },[loggedInUserId]);
 
   useEffect(() => {
     getUserData(loggedInUserId);
-  }, [loggedInUserId]);
+  }, [loggedInUserId,getUserData]);
   return (
     <>
 

@@ -48,7 +48,7 @@ export default function FilterPanel({
       addressDetail: watch('addressDetail') || [],
       categoriesDetail: watch('categoriesDetail') || [],
     });
-  }, [watchSearchQuery]);
+  }, [watchSearchQuery,watch]);
 
   const onSubmit = (data) => {
     setFilterConditions({

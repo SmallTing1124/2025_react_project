@@ -1,4 +1,4 @@
-export default function MultipleImageInput({ register, watch }) {
+export default function MultipleImageInput({ register }) {
   return (
     <>
       <div className="row mb-4">

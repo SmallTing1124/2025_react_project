@@ -24,34 +24,6 @@ export default function TouristSpotForm() {
   const pathLocation = useLocation();
   const [touristSpotData, setTouristSpotData] = useState([]);
   const [currentMode, setCurrentMode] = useState('');
-
-  useEffect(() => {
-    if (pathLocation.pathname.includes('add')) {
-      setCurrentMode('add');
-      setTouristSpotData([]); // 清空編輯資料
-      reset(); // 也要重設表單
-    } else if (pathLocation.pathname.includes('edit')) {
-      setCurrentMode('edit');
-      getTouristSpot(touristSpotId);
-    }
-  }, [pathLocation, touristSpotId,reset]);
-
-  const getTouristSpot = async (touristSpotId) => {
-    try {
-      const res = await axios.get(
-        `${BASE_URL}/locations/${touristSpotId}?_embed=editedSpot`
-      );
-      setTouristSpotData(res.data);
-    } catch (error) {
-      console.error(error); // 打印錯誤詳情
-      if (error.response && error.response.data) {
-        alert(error.response.data.message);
-      } else {
-        alert('發生錯誤，請稍後再試');
-      }
-    }
-  };
-
   const {
     register,
     handleSubmit,
@@ -80,6 +52,32 @@ export default function TouristSpotForm() {
       transport: [],
     },
   });
+  useEffect(() => {
+    if (pathLocation.pathname.includes('add')) {
+      setCurrentMode('add');
+      setTouristSpotData([]); // 清空編輯資料
+      reset(); // 也要重設表單
+    } else if (pathLocation.pathname.includes('edit')) {
+      setCurrentMode('edit');
+      getTouristSpot(touristSpotId);
+    }
+  }, [pathLocation, touristSpotId,reset]);
+
+  const getTouristSpot = async (touristSpotId) => {
+    try {
+      const res = await axios.get(
+        `${BASE_URL}/locations/${touristSpotId}?_embed=editedSpot`
+      );
+      setTouristSpotData(res.data);
+    } catch (error) {
+      console.error(error); // 打印錯誤詳情
+      if (error.response && error.response.data) {
+        alert(error.response.data.message);
+      } else {
+        alert('發生錯誤，請稍後再試');
+      }
+    }
+  };
 
   useEffect(() => {
     // 編輯景點：如果有取到景點資料，更新 form 的初始資料

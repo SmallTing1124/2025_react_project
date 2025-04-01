@@ -10,7 +10,7 @@ export default function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [userList, seUserList] = useState([]);
-  const [showPassword, setShowPassword] = useState(false); // 控制顯示/隱藏密碼
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const getUserList = async () => {
@@ -64,19 +64,19 @@ export default function Register() {
     try {
       const registerRes = await axios.post(`${BASE_URL}/register`, data);
       const { accessToken, user } = registerRes.data;
-      // 設置 Cookie 和 localStorage
+
       document.cookie = `hexToken=${accessToken};`;
       axios.defaults.headers.common['Authorization'] = accessToken;
-      // 存儲 token
+
       localStorage.setItem('token', accessToken);
       localStorage.setItem('user', JSON.stringify(user));
-      // 更新 Redux 狀態
+
       dispatch(
         loginSuccess({ user: user, token: accessToken, role: user.role })
       );
 
       alert('已經註冊成功！');
-      // 重置表單並導航
+
       reset();
       navigate('/user/profile');
     } catch (error) {
@@ -137,7 +137,7 @@ export default function Register() {
               <div className="invalid-feedback">{errors.nickname?.message}</div>
             )}
           </div>
-          
+
           <div className="form-floating col">
             <input
               {...register('birthDate', {
@@ -175,7 +175,7 @@ export default function Register() {
 
             <span
               className="material-symbols-outlined position-absolute bg-white"
-              style={{ top: '17px', right: '20px', cursor: 'pointer' }}
+              style={{ top: '17px', right: '30px', cursor: 'pointer' ,fontSize: '20px'}}
               onClick={() => {
                 setShowPassword(!showPassword);
               }}
@@ -215,7 +215,7 @@ export default function Register() {
             />
             <span
               className="material-symbols-outlined position-absolute bg-white"
-              style={{ top: '17px', right: '20px', cursor: 'pointer' }}
+              style={{ top: '17px', right: '30px', cursor: 'pointer' ,fontSize: '20px'}}
               onClick={() => {
                 setShowPassword(!showPassword);
               }}

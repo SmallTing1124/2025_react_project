@@ -28,7 +28,7 @@ export default function FeaturedTouristSpots() {
     if (swiperRef.current.isBeginning) {
       swiperRef.current.slideTo(swiperRef.current.slides.length - 1);
     } else {
-      swiperRef.current.slideNext();
+      swiperRef.current.slidePrev();
     }
   };
 
@@ -61,9 +61,20 @@ export default function FeaturedTouristSpots() {
             </div>
           </div>
         </div>
-        <div className="position-relative px-8">
+        <div className="position-relative px-lg-14 px-13">
           <Swiper
-            slidesPerView={3}
+            slidesPerView={1}
+            spaceBetween={4}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 8,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 12,
+              },
+            }}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
           >
             {touristSpotsData.map((touristSpot) => {
@@ -72,7 +83,7 @@ export default function FeaturedTouristSpots() {
                   <Link
                     to={`tourist-spot/${touristSpot.id}`}
                     href="tourist-info.html"
-                    className="d-block mx-3 mb-3"
+                    className="d-block mb-3"
                   >
                     <div className="card attraction-card">
                       <div className="card-body">
@@ -111,13 +122,13 @@ export default function FeaturedTouristSpots() {
             })}
           </Swiper>
           <button
-            className="btn btn-primary p-3 position-absolute top-50 start-0 translate-middle"
+            className="btn btn-primary p-3 position-absolute top-50 start-0 translate-middle-y"
             onClick={handlePrevSlide}
           >
             <span className="material-symbols-outlined">arrow_left</span>
           </button>
           <button
-            className="btn btn-primary p-3 position-absolute top-50 start-100 translate-middle"
+            className="btn btn-primary p-3 position-absolute top-50 end-0 translate-middle-y"
             onClick={handleNextSlide}
           >
             <span className="material-symbols-outlined">arrow_right</span>

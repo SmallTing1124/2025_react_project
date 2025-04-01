@@ -17,7 +17,7 @@
         transform: translateX(10%);
 
         @include media-breakpoint-down(lg) {
-            padding: 16px 35px 16px 65px;
+            padding: 16px 35px 16px 35px;
             margin-bottom: 10px;
             transform: translateX(20%);
         }

@@ -18,7 +18,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export default function TouristSpotForm() {
   const navigate = useNavigate();
-  const userInfo = useSelector((state) => state?.auth?.user); // 取得使用者id
+  const userInfo = useSelector((state) => state?.auth?.user);
   const { id: touristSpotId } = useParams(); //取得當前景點 id
 
   const pathLocation = useLocation();
@@ -55,8 +55,8 @@ export default function TouristSpotForm() {
   useEffect(() => {
     if (pathLocation.pathname.includes('add')) {
       setCurrentMode('add');
-      setTouristSpotData([]); // 清空編輯資料
-      reset(); // 也要重設表單
+      setTouristSpotData([]); 
+      reset(); 
     } else if (pathLocation.pathname.includes('edit')) {
       setCurrentMode('edit');
       getTouristSpot(touristSpotId);
@@ -70,7 +70,7 @@ export default function TouristSpotForm() {
       );
       setTouristSpotData(res.data);
     } catch (error) {
-      console.error(error); // 打印錯誤詳情
+      console.error(error); 
       if (error.response && error.response.data) {
         alert(error.response.data.message);
       } else {
@@ -80,7 +80,7 @@ export default function TouristSpotForm() {
   };
 
   useEffect(() => {
-    // 編輯景點：如果有取到景點資料，更新 form 的初始資料
+    
     if (touristSpotData) {
       reset({
         address: touristSpotData.address || '',
@@ -133,7 +133,7 @@ export default function TouristSpotForm() {
       imagesUrl: [],
     };
 
-    // 當前模式：新增
+   
     if (currentMode === 'add') {
       spotFormData.userId = userInfo.id || '';
       spotFormData.createdAt = new Date().toISOString();
@@ -142,18 +142,18 @@ export default function TouristSpotForm() {
       alert('新增成功');
     }
 
-    // 當前模式：編輯
+   
     if (currentMode === 'edit') {
       const oldRecord = touristSpotData.editedSpot.find(
         (record) => String(record.userId) === String(userInfo.id)
       );
       if (oldRecord) {
-        // 如果該使用者已有紀錄，只更新修改時間
+       
         oldRecord.editedAt = new Date().toISOString();
         editTouristSoptData(spotFormData, touristSpotId);
         editRecord(oldRecord, oldRecord.id);
       } else {
-        // 如果該使用者沒有紀錄，則推入新的修改歷史
+       
         const newRecord = {
           userId: userInfo.id,
           locationId: touristSpotData.id,
@@ -173,7 +173,7 @@ export default function TouristSpotForm() {
     try {
       await axios.patch(`${BASE_URL}/locations/${touristSpotId}`, touristSpot);
     } catch (error) {
-      console.error(error); // 打印錯誤詳情
+      console.error(error);
     }
   };
 
@@ -189,7 +189,7 @@ export default function TouristSpotForm() {
     try {
       await axios.post(`${BASE_URL}/editedSpot`, record);
     } catch (error) {
-      console.error(error); // 打印錯誤詳情
+      console.error(error);
     }
   };
 
@@ -323,7 +323,7 @@ export default function TouristSpotForm() {
                   required={{
                     required: '最低消費欄位必填',
                     pattern: {
-                      value: /^[0-9]+(\.[0-9]{1,2})?$/, // 允許數字及最多兩位小數
+                      value: /^[0-9]+(\.[0-9]{1,2})?$/,
                       message: '最低消費必須是正數或零',
                     },
                   }}

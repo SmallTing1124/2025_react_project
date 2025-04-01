@@ -25,23 +25,19 @@ export default function Login() {
 
   const handleLogin = async (account) => {
     try {
-      // 登入請求
       const accountRes = await axios.post(`${BASE_URL}/login`, account);
       const { accessToken, user } = accountRes.data;
 
-      // 設置 Cookie 和 localStorage
       document.cookie = `hexToken=${accessToken};`;
       axios.defaults.headers.common['Authorization'] = accessToken;
-      // 存儲 token
+
       localStorage.setItem('token', accessToken);
       localStorage.setItem('user', JSON.stringify(user));
 
-      // 更新 Redux 狀態
       dispatch(
         loginSuccess({ user: user, token: accessToken, role: user.role })
       );
 
-      // 重置表單並導航
       reset();
       navigate('/');
     } catch (error) {

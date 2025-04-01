@@ -25,7 +25,7 @@ export default function SelectFilter({
     } else {
       setAreaQptions([]);
     }
-    setValue(detailFilterKey, []); // 每當選取城市 先把 表單紀錄的區域清除
+    setValue(detailFilterKey, []);
   }, [selectedCategory, setValue, detailFilterKey, filteredData]);
 
   const handleSelectedCity = (index) => {
@@ -43,7 +43,7 @@ export default function SelectFilter({
     setValue(detailFilterKey, []);
     if (dropdownRef.current) {
       const dropdown = Dropdown.getOrCreateInstance(dropdownRef.current);
-      dropdown.hide(); // 確保有實例後再隱藏
+      dropdown.hide(); 
     }
   };
 
@@ -51,7 +51,7 @@ export default function SelectFilter({
   const handleCloseDropDown = () => {
     if (dropdownRef.current) {
       const dropdown = Dropdown.getOrCreateInstance(dropdownRef.current);
-      dropdown.hide(); // 確保有實例後再隱藏
+      dropdown.hide(); 
     }
   };
 

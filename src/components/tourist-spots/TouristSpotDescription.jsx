@@ -1,6 +1,6 @@
-export default function TouristSpotDescription({touristSpot}) {
+export default function TouristSpotDescription({ touristSpot }) {
   return (
-    <div className="col-12  rounded-5 px-2 px-lg-12 pb-12 position-relative tourist-information tourist-detail bg-grid-paper">
+    <div className="col-12  rounded-5 px-lg-12 px-md-7 px-6 pb-12 position-relative tourist-information tourist-detail bg-grid-paper">
       <h2 className="d-flex d-lg-none title font-NaniFont text-center position-absolute  top-0 start-50 translate-middle align-items-center">
         景點簡介
       </h2>

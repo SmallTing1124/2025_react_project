@@ -4,10 +4,9 @@ import UserSidebar from '../components/sidebar/UserSidebar';
 import Footer from '../components/footer/Footer';
 import { useSelector } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react';
-
+import ScrollToTop from '../utils/ScrollToTop';
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
-
 
 export default function UserLayout() {
   const currentRole = useSelector((state) => state.auth.role);
@@ -23,14 +22,14 @@ export default function UserLayout() {
     } catch (error) {
       console.log(error);
     }
-  },[loggedInUserId]);
+  }, [loggedInUserId]);
 
   useEffect(() => {
     getUserData(loggedInUserId);
-  }, [loggedInUserId,getUserData]);
+  }, [loggedInUserId, getUserData]);
   return (
     <>
-
+      <ScrollToTop />
       <GeneralNavbar currentRole={currentRole} />
       <section className="py-lg-14 py-8 bg-light-gray">
         <div className="container-xl">

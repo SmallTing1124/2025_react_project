@@ -93,7 +93,6 @@ export default function RankingList() {
     getRankingData();
   }, []);
 
-  //   new Date(b.createdAt) - new Date(a.createdAt)
   useEffect(() => {
     if (rankingData) {
       const creatorsShort = rankingData

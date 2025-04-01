@@ -41,7 +41,7 @@ export default function FavoriteTouristSpots() {
   }, []);
 
   useEffect(() => {
-    if (!userData || !touristSpotList) return; // 確保變數存在
+    if (!userData || !touristSpotList) return;
 
     if (activeTab === 'favorites') {
       const favoriteIdList =

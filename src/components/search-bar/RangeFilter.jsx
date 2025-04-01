@@ -7,14 +7,14 @@ export default function RangeFilter({ register, watch, setValue }) {
     setValue('ageRange', 0);
     if (dropdownRef.current) {
       const dropdown = Dropdown.getOrCreateInstance(dropdownRef.current);
-      dropdown.hide(); // 確保有實例後再隱藏
+      dropdown.hide(); 
     }
   };
   const dropdownRef = useRef(null);
   const handleCloseDropDown = () => {
     if (dropdownRef.current) {
       const dropdown = Dropdown.getOrCreateInstance(dropdownRef.current);
-      dropdown.hide(); // 確保有實例後再隱藏
+      dropdown.hide(); 
     }
   };
   return (

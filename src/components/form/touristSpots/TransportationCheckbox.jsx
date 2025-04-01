@@ -1,4 +1,3 @@
-// 取得台灣地區資料
 import transportData from '../../../assets/json/transport_options.json';
 import Checkbox from './formElements/Checkbox';
 const transport = transportData;

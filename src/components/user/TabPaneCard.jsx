@@ -57,8 +57,6 @@ export default function TabPaneCard({
     }
   }, [activeTab, favoriteList, wishlistList, checkedInList, updateStatusCount]);
 
-  // checkedin
-  // checkedInList
   return (
     <>
       <div

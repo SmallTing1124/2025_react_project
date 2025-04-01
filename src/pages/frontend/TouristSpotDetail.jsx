@@ -2,9 +2,9 @@ import statusOptionsData from '../../assets/json/status_options.json';
 import facilityOptionsData from '../../assets/json/facility_options.json';
 import transportOptionsData from '../../assets/json/transport_options.json';
 
-const statusOptions = statusOptionsData; // 取得營業狀態
-const facilityOptions = facilityOptionsData; // 取得設施狀態
-const transportOptions = transportOptionsData; // 取得交通狀態
+const statusOptions = statusOptionsData; 
+const facilityOptions = facilityOptionsData; 
+const transportOptions = transportOptionsData; 
 
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -21,7 +21,6 @@ import ThanksSection from '../../components/tourist-spots/ThanksSection';
 import { useParams } from 'react-router';
 
 export default function TouristSpotsDetail() {
-  // loggedInUserId : 當前登入的使用者id
   const loggedInUserId = useSelector((state) => state?.auth?.user?.id);
   const { id: touristSpotId } = useParams();
   const [touristSpot, setTouristSpot] = useState({});

@@ -20,15 +20,15 @@ export default function Footer() {
             <div className="col-lg-6 text-lg-start text-center">
               <ul className="list-unstyled d-inline-flex align-items-center text-white mb-lg-0 mb-2">
                 <li>
-                  <a href="" className="d-block py-2 link-white">
+                  <p className="d-block py-2 link-white">
                     服務政策
-                  </a>
+                  </p>
                 </li>
                 <span className="mx-6">｜</span>
                 <li>
-                  <a href="" className="d-block py-2 link-white">
+                  <p className="d-block py-2 link-white">
                     隱私條款
-                  </a>
+                  </p>
                 </li>
               </ul>
             </div>

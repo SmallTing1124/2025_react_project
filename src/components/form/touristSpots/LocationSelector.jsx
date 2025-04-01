@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-// 取得台灣地區資料
 import taiwanRegionsData from '../../../assets/json/taiwan_regions.json';
 const taiwanRegions = taiwanRegionsData;
 
@@ -24,7 +23,6 @@ export default function LocationSelector({
   }, [selectedCity]);
 
   useEffect(() => {
-    // 編輯景點：如果有取到景點資料，更新 form 的初始資料
     if (touristSpotData) {
       const currentCity = taiwanRegions.find(
         (city) => city.group === touristSpotData?.location?.city

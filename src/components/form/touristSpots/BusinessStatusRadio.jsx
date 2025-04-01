@@ -1,4 +1,3 @@
-// 取得台灣地區資料
 import BusinessStatusData from '../../../assets/json/status_options.json';
 const BusinessStatus = BusinessStatusData;
 

@@ -7,7 +7,6 @@ import TouristSpotCardList from '../../components/tourist-spots/TouristSpotCardL
 import FilterPanel from '../../components/search-bar/FilterPanel';
 
 export default function TouristSpotsList() {
-  // 取得景點列表
   const [touristSpotsData, setTouristSpotsData] = useState([]);
   const [filtertouristSpots, setFiltertouristSpots] = useState([]);
   useEffect(() => {
@@ -35,7 +34,8 @@ export default function TouristSpotsList() {
           <div className="row">
             <div className="col-12">
               <div className="text-center">
-                <div className="page-title pb-13">
+                <div className="page-title
+                ">
                   <h2 className="font-NaniFont text-primary fs-lg-1 fs-2">
                     親子景點篩選
                   </h2>
@@ -47,8 +47,8 @@ export default function TouristSpotsList() {
                   <div className="col-lg-4 col-5">
                     <img
                       src="./images/home/deco-cat.svg"
-                      width={100}
-                      style={{ transform: 'translateY(-56px)' }}
+                      width={200}
+                      style={{ transform: 'translateY(16px)' }}
                       className="mw-100"
                     />
                   </div>

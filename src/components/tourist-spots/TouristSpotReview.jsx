@@ -53,7 +53,7 @@ export default function TouristSpotReview({ title, touristSpot }) {
           {title}
         </h2>
         <div className="row d-flex flex-column-reverse flex-lg-row mt-12 mb-14 mt-lg-0">
-          <div className="col-12 col-lg-8 px-2 px-lg-12 pb-10 tourist-evaluate  rounded-5 mt-15 mt-lg-0 bg-grid-paper">
+          <div className="col-12 col-lg-8 px-lg-12 px-md-7  px-6 pb-10 tourist-evaluate  rounded-5 mt-15 mt-lg-0 bg-grid-paper">
             {reviewData.length > 0 && (
               <>
                 <div className="d-flex mt-13 ">

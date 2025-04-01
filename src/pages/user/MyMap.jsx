@@ -56,12 +56,10 @@ export default function MyMap() {
     getTouristSpotList();
   }, []);
 
-  // 處理 addSpotList & editSpotList
   useEffect(() => {
-    if (!userData || !touristSpotList) return; // 確保變數存在
+    if (!userData || !touristSpotList) return; 
 
     if (activeTab === 'add-maps') {
-      // console.log('addIdFilter:', userData.locations);
       setaddSpotList(userData.locations);
     } else if (activeTab === 'edit-maps') {
       const editIdList =
@@ -69,7 +67,6 @@ export default function MyMap() {
       const editIdFilter = touristSpotList?.filter((spot) =>
         editIdList.includes(spot.id)
       );
-      // console.log('editIdFilter:', editIdFilter);
       setEditSpotList(editIdFilter);
     }
   }, [activeTab, userData, touristSpotList]);
@@ -95,7 +92,7 @@ export default function MyMap() {
   useEffect(() => {
     if (activeTab === 'add-maps') {
       setStatusCount({
-        all: addSpotList?.length, // 計算所有景點數量
+        all: addSpotList?.length, 
         open: addSpotList?.filter((item) => item?.statusId === 'open')?.length,
         pause: addSpotList?.filter((item) => item?.statusId === 'pause')
           ?.length,
@@ -104,7 +101,7 @@ export default function MyMap() {
       });
     } else if (activeTab === 'edit-maps') {
       setStatusCount({
-        all: editSpotList?.length, // 計算所有景點數量
+        all: editSpotList?.length, 
         open: editSpotList?.filter((item) => item?.statusId === 'open')?.length,
         pause: editSpotList?.filter((item) => item?.statusId === 'pause')
           ?.length,

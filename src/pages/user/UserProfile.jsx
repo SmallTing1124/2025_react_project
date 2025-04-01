@@ -1,4 +1,3 @@
-// 取得台灣地區資料
 import { useEffect, useState } from 'react';
 import taiwanRegions from '../../assets/json/taiwan_regions.json';
 
@@ -46,10 +45,10 @@ export default function UserProfile() {
       if (currentCity) {
         setAreas(currentCity.options);
       } else {
-        setAreas([]); // 避免切換城市時地區列表沒有清空
+        setAreas([]); 
       }
     } else {
-      setAreas([]); // 避免選擇「請選擇」時仍顯示上一個城市的地區
+      setAreas([]); 
     }
   }, [selectedCity]);
 
@@ -59,7 +58,7 @@ export default function UserProfile() {
     }
   }, [userData]);
   useEffect(() => {
-    // 編輯：如果有取到景點資料，更新 form 的初始資料
+    
     if (userFormData) {
       reset({
         ...userFormData,
@@ -74,7 +73,7 @@ export default function UserProfile() {
         phone: userFormData?.phone || '',
       });
 
-      // 設置地區選項
+      
       const currentCity = taiwanRegions.find(
         (city) => city.group === userFormData?.location?.city
       );

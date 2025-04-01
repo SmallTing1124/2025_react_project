@@ -44,11 +44,13 @@ export default function TagCategories() {
             src="./images/home/deco_taxi.svg"
             width={138}
             className="position-absolute bottom-0"
+            alt="裝飾圖，一輛計程車"
           />
           <img
             src="./images/home/deco_bus_move.svg"
             width={172}
             className="position-absolute bottom-0"
+            alt="裝飾圖，一輛巴士"
           />
         </div>
       </section>

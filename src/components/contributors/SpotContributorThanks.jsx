@@ -31,7 +31,7 @@ export default function SpotContributorThanks() {
   return (
     <>
       <div className="text-center">
-        <div className="page-title pb-13">
+        <div className="page-title">
           <h2 className="font-NaniFont bg-deco-msg text-secondary fs-lg-1 fs-2">
             景點開拓者
             <span className="text-white font-NaniFont d-block">
@@ -42,7 +42,7 @@ export default function SpotContributorThanks() {
         <img
           src="./images/contributors/deco_idea.svg"
           alt="deco_idea"
-          style={{ transform: 'translateY(-72px)' }}
+          style={{ transform: 'translateY(-24px)' }}
           className="mw-100 col-lg-3 col-4"
         />
       </div>

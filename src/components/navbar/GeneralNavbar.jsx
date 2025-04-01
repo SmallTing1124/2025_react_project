@@ -96,7 +96,7 @@ export default function GeneralNavbar({ currentRole }) {
                   >
                     <img
                       src={ userInfo?.avatarImgUrl || "./images/user-avatar.png"}
-                      alt="mdo123"
+                      alt="user-avatar"
                       width={48}
                       height={48}
                       className="rounded-circle object-fit-cover"

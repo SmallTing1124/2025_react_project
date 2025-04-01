@@ -3,23 +3,27 @@ import TagCategories from '../../components/TagCategories';
 import FeaturedTouristSpots from '../../components/FeaturedTouristSpots';
 
 export default function HomePage() {
-
-
   return (
     <>
       <section className="banner-area">
+        <div className="position-absolute opacity-0">
+          <h1>親子好趣處</h1>
+          <h2>輕鬆找到適合孩子年齡、興趣的親子景點</h2>
+        </div>
         <img
+          alt="親子好趣處，輕鬆找親子景點"
           src="./images/home/banner-bg.svg"
           width="100%"
           className="d-none d-lg-block"
         />
         <img
+          alt="親子好趣處，輕鬆找親子景點"
           src="./images/home/banner_bg_mobile.jpg"
           width="100%"
           className="d-lg-none"
         />
       </section>
-      
+
       <TagCategories />
       <FeaturedTouristSpots title="隨機推薦親子景點" />
       <section className="bg-secondary">

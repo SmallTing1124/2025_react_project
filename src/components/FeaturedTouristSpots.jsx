@@ -53,6 +53,7 @@ export default function FeaturedTouristSpots() {
           <div className="row justify-content-center">
             <div className="col-lg-4 col-5">
               <img
+                alt="裝飾圖片，是一隻貓"
                 src="./images/home/deco-cat.svg"
                 width={315}
                 style={{ transform: 'translateY(-48px)' }}
@@ -88,9 +89,9 @@ export default function FeaturedTouristSpots() {
                     <div className="card attraction-card">
                       <div className="card-body">
                         <img
+                          alt={touristSpot.name}
                           src={touristSpot.imageUrl}
                           className="rounded-top"
-                          alt=""
                         />
                         <h3 className="fs-lg-4 fs-5 fw-bold mb-4">
                           {touristSpot.name}

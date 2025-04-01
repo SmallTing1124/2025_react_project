@@ -10,6 +10,7 @@ export default function Footer() {
                   src="./images/home/contact-logo.svg"
                   width={338}
                   className="mw-100"
+                  alt="親子好趣處"
                 />
               </div>
             </div>

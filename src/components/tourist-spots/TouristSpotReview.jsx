@@ -95,6 +95,7 @@ export default function TouristSpotReview({ title, touristSpot }) {
                           <img
                             className="evaluate-avatar me-3 object-fit-cover"
                             src={review.user.avatarImgUrl}
+                            alt="user avatar"
                           />
                           <div className="evaluate-text">
                             <div className="evaluate-text-top d-flex">

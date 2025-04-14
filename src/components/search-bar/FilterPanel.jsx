@@ -1,7 +1,5 @@
-// 取得台灣地區資料
 import taiwanRegionsData from '../../assets/json/taiwan_regions.json';
 const taiwanRegions = taiwanRegionsData;
-// 取得景點類別資料
 import categoriesData from '../../assets/json/category_options.json';
 const categories = categoriesData;
 

@@ -3,23 +3,27 @@ import TagCategories from '../../components/TagCategories';
 import FeaturedTouristSpots from '../../components/FeaturedTouristSpots';
 
 export default function HomePage() {
-
-
   return (
     <>
       <section className="banner-area">
+        <div className="position-absolute opacity-0">
+          <h1>親子好趣處</h1>
+          <h2>輕鬆找到適合孩子年齡、興趣的親子景點</h2>
+        </div>
         <img
+          alt="親子好趣處，輕鬆找親子景點"
           src="./images/home/banner-bg.svg"
           width="100%"
           className="d-none d-lg-block"
         />
         <img
+          alt="親子好趣處，輕鬆找親子景點"
           src="./images/home/banner_bg_mobile.jpg"
           width="100%"
           className="d-lg-none"
         />
       </section>
-      
+
       <TagCategories />
       <FeaturedTouristSpots title="隨機推薦親子景點" />
       <section className="bg-secondary">
@@ -29,6 +33,7 @@ export default function HomePage() {
               <div className="bg-grid-paper rounded-5 py-lg-14 pt-12 pb-17 position-relative mt-lg-14 mb-lg-16 my-12">
                 <img
                   src="./images/home/deco_map.svg"
+                  alt="deco_map"
                   width={264}
                   className="mx-100 position-absolute top-0 mt-8 d-lg-block d-none"
                 />
@@ -54,11 +59,13 @@ export default function HomePage() {
           </div>
           <img
             src="./images/home/deco_idea.svg"
+            alt='deco_idea'
             width={373}
             className="mx-100 position-absolute bottom-0 end-0 d-lg-block d-none"
           />
           <img
             src="./images/home/deco_idea.svg"
+            alt='deco_idea'
             width={190}
             className="mx-100 position-absolute start-50  translate-middle-x bottom-0 end-0 d-lg-none"
           />

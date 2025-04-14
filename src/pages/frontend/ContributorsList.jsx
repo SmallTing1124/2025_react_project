@@ -29,6 +29,7 @@ export default function ContributorsList() {
                     <img
                       src="./images/contributors/deco-hill.svg"
                       height={70}
+                      alt="deco-hill"
                     />
                   </h2>
                 </div>

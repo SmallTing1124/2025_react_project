@@ -49,7 +49,6 @@ export default function TouristSpotAddReview({ touristSpot, getReviewData }) {
     }
   };
 
-  //   處理Modal
   const AddReviewModal = useRef(null);
   useEffect(() => {
     new Modal(AddReviewModal.current);
@@ -169,9 +168,6 @@ export default function TouristSpotAddReview({ touristSpot, getReviewData }) {
                 <button
                   type="submit"
                   className="btn btn-primary"
-                  onClick={() => {
-                    // handleColseModal();
-                  }}
                 >
                   送出
                 </button>

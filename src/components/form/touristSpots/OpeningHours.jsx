@@ -2,14 +2,12 @@ import { Modal } from 'bootstrap';
 import { useEffect, useRef, useState } from 'react';
 
 export default function OpeningHours({ register, watch, setValue }) {
-  //   處理Modal
   const OpenTimeRef = useRef(null);
   useEffect(() => {
     new Modal(OpenTimeRef.current, {
       backdrop: 'static',
     });
   }, []);
-  //   modal-backdrop fade show
   const handleOpenModalOpenTime = () => {
     const modalInstance = Modal.getInstance(OpenTimeRef.current);
     modalInstance.show();
@@ -30,7 +28,7 @@ export default function OpeningHours({ register, watch, setValue }) {
     modalInstance.show();
     setTimeout(() => {
       handleCloseModalOpenTime();
-    }, 300); // 這裡的 300ms 讓動畫完成後再開啟新的 Modal
+    }, 300); 
   };
 
   const handleCloseModalCopyTime = () => {
@@ -38,7 +36,7 @@ export default function OpeningHours({ register, watch, setValue }) {
     modalInstance.hide();
     setTimeout(() => {
       handleOpenModalOpenTime();
-    }, 300); // 這裡的 300ms 讓動畫完成後再開啟新的 Modal
+    }, 300); 
   };
 
   const [openingHours, setOpeningHours] = useState({
@@ -53,8 +51,6 @@ export default function OpeningHours({ register, watch, setValue }) {
   const [backupOpeningHours, setBackupOpeningHours] = useState({});
   const [backupWatchTimeOptions, setBackupWatchTimeOptions] = useState([]);
 
-  //   { startTime: '', endTime: '' }
-
   const watchTimeOptions = watch('timeOptions', []);
   const watchBusinessHours = watch('businessHours', {});
 
@@ -64,14 +60,12 @@ export default function OpeningHours({ register, watch, setValue }) {
     if (Object.keys(watchBusinessHours).length > 0) {
       setBackupOpeningHours(watchBusinessHours);
       setOpeningHours(watchBusinessHours);
-      // 收集所有應該加入的 weekday
       const newTimeOptions = Object.keys(watchBusinessHours).filter(
         (weekday) => watchBusinessHours[weekday].length > 0
       );
       setValue('timeOptions', [...newTimeOptions]);
       setBackupWatchTimeOptions(newTimeOptions);
     } else {
-      // 先備份目前的 openingHours
       setBackupOpeningHours(openingHours);
       setBackupWatchTimeOptions(watchTimeOptions);
     }
@@ -79,7 +73,6 @@ export default function OpeningHours({ register, watch, setValue }) {
 
   useEffect(() => {
     setOpeningHours((prev) => {
-      // 如果沒有選擇任何星期，則清空所有時間
       if (!Array.isArray(watchTimeOptions) || watchTimeOptions.length === 0) {
         return Object.keys(prev).reduce((acc, weekday) => {
           acc[weekday] = [];
@@ -90,20 +83,16 @@ export default function OpeningHours({ register, watch, setValue }) {
       const updataOpeningHours = { ...prev };
 
       Object.keys(updataOpeningHours).forEach((weekday) => {
-        // 檢查該星期是否在選擇的時間選項中
         if (watchTimeOptions.includes(weekday)) {
           if (updataOpeningHours[weekday].length === 0) {
-            // 原本有時間資料的，抓取之前的資料在新增
             updataOpeningHours[weekday] = [
               ...prev[weekday],
               { startTime: '', endTime: '', id: Date.now() },
             ];
           } else {
-            // 沒有時間資料的，新增保留原本資料
             updataOpeningHours[weekday] = [...prev[weekday]];
           }
         } else {
-          // 沒有選取的 時間陣列為空間列
           updataOpeningHours[weekday] = [];
         }
       });
@@ -158,7 +147,6 @@ export default function OpeningHours({ register, watch, setValue }) {
       );
       const newOpeningHours = { ...prev, [weekday]: updatedWeekdaySlots };
 
-      // 如果該 weekday 的時段全部刪除，則從 timeOptions 內移除該 weekday
       if (updatedWeekdaySlots.length === 0) {
         setValue(
           'timeOptions',
@@ -226,7 +214,6 @@ export default function OpeningHours({ register, watch, setValue }) {
       });
       return updatedOpeningHours;
     });
-    // 更新 watchTimeOptions，确保所有复制的 weekday 都被加入
     setValue('timeOptions', [...watchTimeOptions, ...selectedWeekdays]);
     setCopyWeekday('');
     setSelectedWeekdays([]);

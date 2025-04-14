@@ -5,8 +5,8 @@ import NotFound from '../pages/error/NotFound';
 // MainLayout
 import MainLayout from '../layouts/MainLayout';
 import HomePage from '../pages/Frontend/HomePage';
-import TouristSpotsList from '../pages/Frontend/TouristSpotsList';
-import TouristSpotsDetail from '../pages/Frontend/TouristSpotDetail';
+import TouristSpotsList from '../pages/frontend/TouristSpotsList';
+import TouristSpotsDetail from '../pages/frontend/TouristSpotDetail';
 import ContributorsList from '../pages/Frontend/ContributorsList';
 import Login from '../pages/auth/Login';
 import Register from '../pages/auth/Register';

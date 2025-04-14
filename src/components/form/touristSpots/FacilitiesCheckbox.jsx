@@ -1,4 +1,3 @@
-// 取得台灣地區資料
 import facilityData from '../../../assets/json/facility_options.json';
 import Checkbox from './formElements/Checkbox';
 const facility = facilityData;

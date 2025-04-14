@@ -11,7 +11,7 @@ export default function SwiperSpotList({ newSpotThankList }) {
     if (swiperRef.current.isBeginning) {
       swiperRef.current.slideTo(swiperRef.current.slides.length - 1);
     } else {
-      swiperRef.current.slideNext();
+      swiperRef.current.slidePrev();
     }
   };
 
@@ -23,10 +23,20 @@ export default function SwiperSpotList({ newSpotThankList }) {
     }
   };
   return (
-    <div className="position-relative px-8">
+    <div className="position-relative  px-lg-14 px-13">
       <Swiper
-        slidesPerView={3}
-        spaceBetween={16}
+        slidesPerView={1}
+        spaceBetween={4}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 8,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 12,
+          },
+        }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {newSpotThankList?.map((spot) => {

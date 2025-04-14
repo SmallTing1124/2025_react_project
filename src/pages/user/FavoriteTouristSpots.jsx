@@ -41,7 +41,7 @@ export default function FavoriteTouristSpots() {
   }, []);
 
   useEffect(() => {
-    if (!userData || !touristSpotList) return; // 確保變數存在
+    if (!userData || !touristSpotList) return;
 
     if (activeTab === 'favorites') {
       const favoriteIdList =
@@ -117,21 +117,21 @@ export default function FavoriteTouristSpots() {
           type="favorites"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
-        ></TabNavButton>
+        />
         <TabNavButton
           name="想去的景點"
           type="wishlist"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
-        ></TabNavButton>
+        />
         <TabNavButton
           name="已打卡景點"
           type="checkedin"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
-        ></TabNavButton>
+        />
       </ul>
-      
+
       <div id="myTabContent" className="tab-content">
         <TabPaneCard
           name="喜愛的景點"

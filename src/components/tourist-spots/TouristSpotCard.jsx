@@ -5,7 +5,7 @@ export default function TouristSpotCard({ touristSpot }) {
     <Link to={`/tourist-spot/${touristSpot.id}`} className="d-block">
       <div className="card attraction-card">
         <div className="card-body">
-          <img src={touristSpot.imageUrl} className="rounded-top" alt="" />
+          <img src={touristSpot.imageUrl} className="rounded-top" alt={touristSpot.name} />
           <h3 className="fs-lg-4 fs-5 fw-bold mb-4">{touristSpot.name}</h3>
           <ul className="list-unstyled d-flex flex-column gap-2">
             <li className="d-flex gap-2 align-items-center">

@@ -9,13 +9,10 @@ import formatTimeAgo from '../../utils/formatTimeAgo';
 
 export default function MyReviews() {
   const { userData } = useOutletContext();
-  // 取得登入使用者id
   const loggedInUserId = useSelector((state) => state?.auth?.user?.id);
-  //儲存 留言含景點詳情
   const [userComments, setUserComments] = useState([]);
   const [newUserComments, setNewUserComments] = useState([]);
 
-  // 取得 登入會員的留言 含->景點詳情
   const getUserComments = async (loggedInUserId) => {
     try {
       const res = await axios.get(
@@ -33,7 +30,6 @@ export default function MyReviews() {
 
   useEffect(() => {
     const updataComments = userComments.map((comment) => {
-      // dispatch(timeAgo(comment.timestamp));
       const timeAgo =  formatTimeAgo(comment.timestamp)
       return { ...comment, timeAgo };
     });
@@ -84,40 +80,6 @@ export default function MyReviews() {
             </div>
           );
         })}
-        {/* <div className="col">
-          <div className="card">
-            <div className="card-body p-6">
-              <div className="star">
-                <span className="material-symbols-outlined text-secondary-600 icon-filled">
-                  star
-                </span>
-                <span className="material-symbols-outlined text-secondary-600 icon-filled">
-                  star
-                </span>
-                <span className="material-symbols-outlined text-secondary-600 icon-filled">
-                  star
-                </span>
-                <span className="material-symbols-outlined text-gray icon-filled">
-                  star
-                </span>
-                <span className="material-symbols-outlined text-gray icon-filled">
-                  star
-                </span>
-              </div>
-              <h4 className="my-2 text-primary">九九峰動物樂園</h4>
-              <div className="fs-7">
-                <span>1個月前</span> 在 <b>南投縣草屯鎮</b>
-              </div>
-              <hr />
-              <p className="text-line-2">
-                園區內的恐龍設施讓孩子們興奮不已,每個角落都充滿了驚喜。雖然戶外區域會有一些蚊蟲,但園區的清潔工作做得非常好,讓人感到舒適。動線的設計讓整個遊玩過程非常流暢。對於怕蟲子的人,防蚊液一定要準備好,但這並不會影響我們對這裡的喜愛。我們肯定還會再來!
-              </p>
-              <a href="#" className="btn-open_new">
-                <span className="material-symbols-outlined">open_in_new</span>
-              </a>
-            </div>
-          </div>
-        </div> */}
       </div>
     </>
   );

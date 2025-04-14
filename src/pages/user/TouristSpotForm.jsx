@@ -218,7 +218,7 @@ export default function TouristSpotForm() {
                   <img
                     className="position-absolute"
                     src="./images/tourist/Open.svg"
-                    alt=""
+                    alt="Open"
                   />
                   <div className="tourist-add-text font-NaniFont text-center mt-13 px-8">
                     <h1 className="text-primary ">

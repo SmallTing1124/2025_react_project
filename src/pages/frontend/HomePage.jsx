@@ -33,6 +33,7 @@ export default function HomePage() {
               <div className="bg-grid-paper rounded-5 py-lg-14 pt-12 pb-17 position-relative mt-lg-14 mb-lg-16 my-12">
                 <img
                   src="./images/home/deco_map.svg"
+                  alt="deco_map"
                   width={264}
                   className="mx-100 position-absolute top-0 mt-8 d-lg-block d-none"
                 />
@@ -58,11 +59,13 @@ export default function HomePage() {
           </div>
           <img
             src="./images/home/deco_idea.svg"
+            alt='deco_idea'
             width={373}
             className="mx-100 position-absolute bottom-0 end-0 d-lg-block d-none"
           />
           <img
             src="./images/home/deco_idea.svg"
+            alt='deco_idea'
             width={190}
             className="mx-100 position-absolute start-50  translate-middle-x bottom-0 end-0 d-lg-none"
           />

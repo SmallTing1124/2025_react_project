@@ -45,10 +45,10 @@ export default function UserProfile() {
       if (currentCity) {
         setAreas(currentCity.options);
       } else {
-        setAreas([]); 
+        setAreas([]);
       }
     } else {
-      setAreas([]); 
+      setAreas([]);
     }
   }, [selectedCity]);
 
@@ -58,7 +58,6 @@ export default function UserProfile() {
     }
   }, [userData]);
   useEffect(() => {
-    
     if (userFormData) {
       reset({
         ...userFormData,
@@ -73,7 +72,6 @@ export default function UserProfile() {
         phone: userFormData?.phone || '',
       });
 
-      
       const currentCity = taiwanRegions.find(
         (city) => city.group === userFormData?.location?.city
       );
@@ -130,11 +128,12 @@ export default function UserProfile() {
                     style={{
                       backgroundImage: 'url(./images/user-avatar.png)',
                       backgroundSize: 'contain',
-                      width:"90px"
+                      width: '90px',
                     }}
                   >
                     {selectedAvatarImgUrl && (
                       <img
+                        alt="avatarImgUrl"
                         className="rounded-circle object-fit-cover"
                         width="90"
                         height="90"

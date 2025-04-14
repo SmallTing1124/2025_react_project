@@ -13,7 +13,7 @@ export default function TouristSpotsList() {
     (async () => {
       try {
         const res = await axios.get(`${BASE_URL}/locations`);
-        const data = res.data.sort(() => Math.random() - 0.5)
+        const data = res.data.sort(() => Math.random() - 0.5);
         setTouristSpotsData(data);
         setFiltertouristSpots(data);
       } catch (error) {
@@ -21,8 +21,6 @@ export default function TouristSpotsList() {
       }
     })();
   }, []);
-
-
 
   return (
     <>
@@ -34,8 +32,10 @@ export default function TouristSpotsList() {
           <div className="row">
             <div className="col-12">
               <div className="text-center">
-                <div className="page-title
-                ">
+                <div
+                  className="page-title
+                "
+                >
                   <h2 className="font-NaniFont text-primary fs-lg-1 fs-2">
                     親子景點篩選
                   </h2>
@@ -46,6 +46,7 @@ export default function TouristSpotsList() {
                 <div className="row justify-content-center">
                   <div className="col-lg-4 col-5">
                     <img
+                      alt="deco-cat"
                       src="./images/home/deco-cat.svg"
                       width={200}
                       style={{ transform: 'translateY(16px)' }}

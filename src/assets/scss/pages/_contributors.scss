@@ -1,159 +1,164 @@
 .contribution-card {
-    text-align: center;
-    border-radius: $border-radius-xxl;
-    border: none;
-    padding-top: 36px;
-    padding-bottom: 4px;
-    position: relative;
-    margin-top: 36px;
+  text-align: center;
+  border-radius: $border-radius-xxl;
+  border: none;
+  padding-top: 36px;
+  padding-bottom: 4px;
+  position: relative;
+  margin-top: 36px;
 
-    .avatar-img {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: calc(100% - 40px);
-    }
+  .avatar-img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% - 40px);
+  }
 
 
 }
 
 .avatar-img {
-    img {
-        object-fit: cover;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        overflow: hidden;
-    }
+  img {
+    object-fit: cover;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 }
 
 @media (max-width:992px) {
-    .swiper-grid>.swiper-wrapper {
-        flex-wrap: nowrap;
-    }
+  .swiper-grid>.swiper-wrapper {
+    flex-wrap: nowrap;
+  }
 }
 
 .swiper-grid-pagination {
-    position: relative;
-    margin-top: 24px;
-    z-index: 999;
+  position: relative;
+  margin-top: 24px;
+  z-index: 999;
 }
 
 .swiper-pagination-bullet-active {
-    background-color: $primary;
+  background-color: $primary;
 }
 
 .leaderboard {
-    padding-top: 72px;
+  padding-top: 72px;
 }
 
 .rank-badeg {
-    border-color: $primary;
-    border-width: 3px;
-    border-radius: 32px;
+  border-color: $primary;
+  border-width: 3px;
+  border-radius: 32px;
 
+  &::before {
+    content: '';
+    width: 102px;
+    height: 128px;
+    position: absolute;
+    top: -48px;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    @media (max-width:991px) {
+      left: 30px;
+      transform: translateX(0);
+    }
+  }
+
+  .card-body {
+    padding: 0;
+    overflow: hidden;
+    border-top: 32px solid $gold;
+    border-radius: 31px;
+    padding-top: 72px;
+
+    .avatar-img {
+      img {
+        @include media-breakpoint-down(lg) {
+          height: 96px;
+          width: 96px;
+        }
+      }
+    }
+
+  }
+
+  .rank-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: $light-gray;
+    padding: 24px 48px 32px;
+    column-gap: 4px;
+
+    li {
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+
+
+      &+li {
+        border-top: 1px solid $dark-gray;
+        margin-top: 4px;
+      }
+    }
+  }
+
+
+  &.gold {
+    .card-body {
+      border-top: 32px solid $gold;
+
+      @include media-breakpoint-up(lg) {
+        padding-top: 128px;
+      }
+    }
 
     &::before {
-        content: '';
-        width: 102px;
-        height: 128px;
-        position: absolute;
-        top: -48px;
-        left: 50%;
-        transform: translateX(-50%);
+      background-image: url('/images/contributors/gold.svg');
     }
+  }
 
+  &.silver {
     .card-body {
-        padding: 0;
-        overflow: hidden;
-        border-top: 32px solid $gold;
-        border-radius: 31px;
-        padding-top: 72px;
+      border-top: 32px solid $silver;
 
-        .avatar-img {
-            img {
-                @include media-breakpoint-down(lg) {
-                    height: 96px ;
-                    width: 96px ;
-                }
-            }
-        }
-
+      @include media-breakpoint-up(lg) {
+        padding-top: 96px;
+      }
     }
 
-    .rank-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        background-color: $light-gray;
-        padding: 24px 48px 32px;
-        column-gap: 4px;
+    &::before {
+      background-image: url('/images/contributors/silver.svg');
+    }
+  }
 
-        li {
-            font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
+  &.copper {
+    .card-body {
+      border-top: 32px solid $copper;
 
-
-            &+li {
-                border-top: 1px solid $dark-gray;
-                margin-top: 4px;
-            }
-        }
+      @include media-breakpoint-up(lg) {
+        padding-top: 64px;
+      }
     }
 
-
-    &.gold {
-        .card-body {
-            border-top: 32px solid $gold;
-
-            @include media-breakpoint-up(lg) {
-                padding-top: 128px;
-            }
-        }
-
-        &::before {
-            background-image: url('/images/contributors/gold.svg');
-        }
+    &::before {
+      background-image: url('/images/contributors/copper.svg');
     }
-
-    &.silver {
-        .card-body {
-            border-top: 32px solid $silver;
-
-            @include media-breakpoint-up(lg) {
-                padding-top: 96px;
-            }
-        }
-
-        &::before {
-            background-image: url('/images/contributors/silver.svg');
-        }
-    }
-
-    &.copper {
-        .card-body {
-            border-top: 32px solid $copper;
-
-            @include media-breakpoint-up(lg) {
-                padding-top: 64px;
-            }
-        }
-
-        &::before {
-            background-image: url('/images/contributors/copper.svg');
-        }
-    }
+  }
 }
 
 
-.table > :not(caption) > * > *{
-    @include media-breakpoint-down(lg) {
-        padding-top: 8px;
-        padding-bottom: 8px;
-    }
+.table> :not(caption)>*>* {
+  @include media-breakpoint-down(lg) {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }
 
 .table-responsive {
-    white-space: nowrap;
+  white-space: nowrap;
 }

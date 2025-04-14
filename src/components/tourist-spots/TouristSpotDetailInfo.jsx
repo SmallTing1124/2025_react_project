@@ -15,7 +15,7 @@ export default function TouristSpotDetailInfo({ title, touristSpot }) {
                 <span className="iconify-bi--telephone-fill text-secondary" />
                 <b className="text-nowrap">電話號碼・</b>
               </div>
-              {touristSpot.phone}
+              <a href={`tel:${touristSpot.phone}`}>{touristSpot.phone}</a>
             </li>
           )}
           {touristSpot.address && (

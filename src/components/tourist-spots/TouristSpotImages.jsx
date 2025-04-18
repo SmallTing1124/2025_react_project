@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-export default function TouristSpotImages({touristSpot}) {
+export default function TouristSpotImages({ touristSpot }) {
   return (
     <>
       <div className="d-flex flex-column mb-md-5">
